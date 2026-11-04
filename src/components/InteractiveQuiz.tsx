@@ -14,8 +14,9 @@ interface QuizItem {
   id: string;
   question: string;
   options: QuizOption[];
-  correctOptionId: string;
+  correctOptionIds: string[];
   fact: string;
+  factsByOption?: Record<string, string>;
 }
 
 type QuizDatabase = Record<string, QuizItem[]>;
@@ -55,11 +56,18 @@ export const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
 
   const currentQ = questions[questionIndex % questions.length];
 
+  const isOptionCorrect = (optionId: string): boolean => {
+    if (currentQ.correctOptionIds && Array.isArray(currentQ.correctOptionIds)) {
+      return currentQ.correctOptionIds.includes(optionId);
+    }
+    return (currentQ as unknown as { correctOptionId: string }).correctOptionId === optionId;
+  };
+
   const handleSelect = (optionId: string) => {
     if (selectedOption !== null) return;
     setSelectedOption(optionId);
 
-    const isCorrect = optionId === currentQ.correctOptionId;
+    const isCorrect = isOptionCorrect(optionId);
     if (isCorrect) {
       setScore((prev) => prev + 1);
       soundtrack.playSuccessFanfare();
@@ -97,7 +105,43 @@ export const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
   };
 
   const isAnswered = selectedOption !== null;
-  const isSelectedCorrect = selectedOption === currentQ.correctOptionId;
+  const isSelectedCorrect = selectedOption ? isOptionCorrect(selectedOption) : false;
+
+  // Resolve explanation text tailored to whichever country the player picked
+  const getExplanationText = (): string => {
+    if (!selectedOption) return currentQ.fact;
+
+    // 1. If JSON provides an option-tailored explanation, use it directly
+    if (currentQ.factsByOption && currentQ.factsByOption[selectedOption]) {
+      return currentQ.factsByOption[selectedOption];
+    }
+
+    // 2. Otherwise replace "Both are correct" portion with the selected country name
+    const pickedOptionObj = currentQ.options.find((o) => o.id === selectedOption);
+    const countryName = pickedOptionObj ? pickedOptionObj.label : 'your selection';
+
+    const localizedPrefixes: Record<string, string> = {
+      en: `That's correct for ${countryName}!`,
+      de: `Richtig für ${countryName}!`,
+      hr: `Točno za ${countryName}!`,
+      sk: `Správne pre ${countryName}!`,
+      sl: `Pravilno za ${countryName}!`,
+      cs: `Správně pro ${countryName}!`,
+      'pt-BR': `Correto para ${countryName}!`,
+      'pt-PT': `Correto para ${countryName}!`,
+    };
+
+    const prefix = localizedPrefixes[currentLang] || `That's correct for ${countryName}!`;
+
+    return currentQ.fact
+      .replace(/^Both are correct[!,.]?\s*/i, `${prefix} `)
+      .replace(/^Beide Antworten sind richtig[!,.]?\s*/i, `${prefix} `)
+      .replace(/^Obje su točne[!,.]?\s*/i, `${prefix} `)
+      .replace(/^Obe odpovede sú správne[!,.]?\s*/i, `${prefix} `)
+      .replace(/^Obe sta pravilni[!,.]?\s*/i, `${prefix} `)
+      .replace(/^Obě odpovědi jsou správné[!,.]?\s*/i, `${prefix} `)
+      .replace(/^Ambas as respostas estão corretas[!,.]?\s*/i, `${prefix} `);
+  };
 
   return (
     <section id="interactive-quiz" className="w-full max-w-4xl mx-auto mt-10 p-5 sm:p-8 bg-white rounded-2xl shadow-sm border border-stone-200 transition-all">
@@ -140,20 +184,24 @@ export const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
             </h4>
           </div>
 
-          {/* Options Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
+          {/* Options Grid (highlight ONLY on the entry the user picked) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
             {currentQ.options.map((option) => {
               const isPicked = selectedOption === option.id;
-              const isCorrectTarget = option.id === currentQ.correctOptionId;
+              const isCorrectTarget = isOptionCorrect(option.id);
 
               let btnStyle = "bg-stone-50 border-stone-200 text-stone-800 hover:bg-stone-100 hover:border-stone-300";
 
               if (isAnswered) {
-                if (isCorrectTarget) {
-                  btnStyle = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold shadow-sm";
-                } else if (isPicked) {
-                  btnStyle = "bg-red-50 border-red-500 text-red-950 shadow-sm";
+                if (isPicked) {
+                  // Only highlight the entry the user picked
+                  if (isCorrectTarget) {
+                    btnStyle = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold shadow-sm ring-1 ring-emerald-400/40";
+                  } else {
+                    btnStyle = "bg-red-50 border-red-500 text-red-950 shadow-sm ring-1 ring-red-400/40";
+                  }
                 } else {
+                  // The other entry remains neutral/unhighlighted
                   btnStyle = "bg-stone-50 border-stone-200 text-stone-400 opacity-60";
                 }
               }
@@ -163,16 +211,17 @@ export const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
                   key={option.id}
                   disabled={isAnswered}
                   onClick={() => handleSelect(option.id)}
-                  className={`p-3.5 sm:p-4 rounded-xl border text-left text-xs sm:text-sm transition-all duration-200 flex flex-col justify-between gap-2 cursor-pointer disabled:cursor-default ${btnStyle}`}
+                  className={`p-4 rounded-xl border text-left text-xs sm:text-sm transition-all duration-200 flex items-center justify-between gap-2 cursor-pointer disabled:cursor-default ${btnStyle}`}
                 >
-                  <span className="font-medium">{option.label}</span>
-                  {isAnswered && (
-                    <div className="self-end mt-1">
+                  <span className="font-semibold text-sm">{option.label}</span>
+                  {/* Icon only on the entry the user picked */}
+                  {isAnswered && isPicked && (
+                    <div className="shrink-0">
                       {isCorrectTarget ? (
                         <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      ) : isPicked ? (
+                      ) : (
                         <XCircle className="w-4 h-4 text-red-500" />
-                      ) : null}
+                      )}
                     </div>
                   )}
                 </button>
@@ -180,7 +229,7 @@ export const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
             })}
           </div>
 
-          {/* Factual Feedback */}
+          {/* Factual Feedback tailored specifically to the country picked */}
           <AnimatePresence>
             {isAnswered && (
               <motion.div
@@ -190,11 +239,12 @@ export const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
                 className="mt-6 p-4 rounded-xl bg-stone-50 border border-stone-200 text-stone-800"
               >
                 <div className="space-y-1.5 text-xs sm:text-sm">
-                  <p className="font-bold text-stone-900">
-                    {isSelectedCorrect ? '✓ Correct!' : '✗ Not quite!'}
+                  <p className="font-bold text-stone-900 flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <span>{isSelectedCorrect ? 'Correct!' : 'Incorrect'}</span>
                   </p>
                   <p className="text-stone-700 leading-relaxed">
-                    {currentQ.fact}
+                    {getExplanationText()}
                   </p>
                 </div>
 
@@ -228,7 +278,7 @@ export const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
           </h4>
 
           <p className="text-stone-600 text-sm max-w-md mx-auto">
-            You scored <strong className="text-stone-900 font-bold">{score} out of {questions.length}</strong>!
+            You scored <strong className="text-stone-900 font-bold">{score} out of {questions.length}</strong>! Every single answer you selected was verified.
           </p>
 
           <button

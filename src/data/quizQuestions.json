@@ -2,314 +2,395 @@
   "en": [
     {
       "id": "en-1",
-      "question": "Which capital city lies directly on the Danube River and is situated less than 70 km from Vienna?",
+      "question": "Which country features a coat of arms with three mountain peaks on its tricolor flag?",
       "options": [
-        { "id": "a", "label": "Bratislava (Slovakia)" },
-        { "id": "b", "label": "Ljubljana (Slovenia)" },
-        { "id": "c", "label": "Zagreb (Croatia)" }
+        { "id": "a", "label": "Slovakia" },
+        { "id": "b", "label": "Slovenia" }
       ],
-      "correctOptionId": "a",
-      "fact": "Bratislava is situated right on the Danube, just about 60 km east of Vienna, making them the two closest capital cities in mainland Europe."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Slovakia features the Tatra, Fatra, and Mátra peaks, while Slovenia features Mount Triglav.",
+      "factsByOption": {
+        "a": "That's correct for Slovakia! The Slovak coat of arms features the three mountain peaks of Tatra, Fatra, and Mátra crowned with a patriarchal double cross.",
+        "b": "That's correct for Slovenia! The Slovenian coat of arms features the three peaks of Mount Triglav above wavy blue lines and golden stars."
+      }
     },
     {
       "id": "en-2",
-      "question": "Which country is renowned for Lake Bled, featuring an iconic island church set against the Julian Alps?",
+      "question": "Which nation acceded to the European Union on May 1, 2004, after spending centuries under Austro-Hungarian rule?",
       "options": [
-        { "id": "a", "label": "Slovenia" },
-        { "id": "b", "label": "Slovakia" },
-        { "id": "c", "label": "Austria" }
+        { "id": "a", "label": "Slovakia" },
+        { "id": "b", "label": "Slovenia" }
       ],
-      "correctOptionId": "a",
-      "fact": "Lake Bled with its picturesque island church and cliffside medieval castle is located in northwestern Slovenia."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Both nations were ruled from Vienna, joined Slavic federations after WWI, and joined the EU together on May 1, 2004.",
+      "factsByOption": {
+        "a": "That's correct for Slovakia! Slovakia officially joined the European Union on May 1, 2004, having previously been governed from Vienna during the Habsburg period.",
+        "b": "That's correct for Slovenia! Slovenia officially joined the European Union on May 1, 2004, having previously been governed from Vienna during the Habsburg period."
+      }
     },
     {
       "id": "en-3",
-      "question": "Which nation was one of the two constituent republics in Czechoslovakia before peacefully dissolving in 1993?",
+      "question": "Which country adopted the Euro (€) as its sole legal tender and official currency?",
       "options": [
         { "id": "a", "label": "Slovakia" },
-        { "id": "b", "label": "Slovenia" },
-        { "id": "c", "label": "Poland" }
+        { "id": "b", "label": "Slovenia" }
       ],
-      "correctOptionId": "a",
-      "fact": "Slovakia and the Czech Republic peacefully separated on January 1, 1993, in what is famously called the Velvet Divorce."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Slovenia adopted the Euro in 2007, and Slovakia adopted the Euro in 2009.",
+      "factsByOption": {
+        "a": "That's correct for Slovakia! Slovakia adopted the Euro (€) as its official currency on January 1, 2009, replacing the Slovak koruna.",
+        "b": "That's correct for Slovenia! Slovenia adopted the Euro (€) as its official currency on January 1, 2007, replacing the Slovenian tolar."
+      }
     },
     {
       "id": "en-4",
-      "question": "Which country boasts Mount Triglav (2,864 m) on its national emblem and national flag?",
+      "question": "Which nation borders both Austria and Hungary along its national frontiers?",
       "options": [
-        { "id": "a", "label": "Slovenia" },
-        { "id": "b", "label": "Slovakia" },
-        { "id": "c", "label": "Switzerland" }
+        { "id": "a", "label": "Slovakia" },
+        { "id": "b", "label": "Slovenia" }
       ],
-      "correctOptionId": "a",
-      "fact": "Mount Triglav, the highest peak of the Julian Alps, is the central national symbol featured on the Slovenian coat of arms."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Austria and Hungary are direct neighbors to both Slovakia and Slovenia.",
+      "factsByOption": {
+        "a": "That's correct for Slovakia! Slovakia shares its western border with Austria and its entire southern border with Hungary.",
+        "b": "That's correct for Slovenia! Slovenia shares its northern border with Austria and its northeastern border with Hungary."
+      }
     },
     {
       "id": "en-5",
-      "question": "Which country is home to the High Tatras, part of the Carpathian mountain arc?",
+      "question": "Which country's native domestic name for its official language begins with 'Slovin-' or 'Sloven-'?",
       "options": [
         { "id": "a", "label": "Slovakia" },
-        { "id": "b", "label": "Slovenia" },
-        { "id": "c", "label": "Hungary" }
+        { "id": "b", "label": "Slovenia" }
       ],
-      "correctOptionId": "a",
-      "fact": "The High Tatras form the natural northern alpine border of Slovakia with Poland, reaching 2,655 m at Gerlachovský štít."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! In their native languages, Slovaks speak 'slovenčina' and Slovenes speak 'slovenščina'.",
+      "factsByOption": {
+        "a": "That's correct for Slovakia! The official language in Slovakia is natively known as 'slovenčina'.",
+        "b": "That's correct for Slovenia! The official language in Slovenia is natively known as 'slovenščina'."
+      }
     }
   ],
   "de": [
     {
       "id": "de-1",
-      "question": "Welche Hauptstadt liegt direkt an der Donau und nur etwa 60 km östlich von Wien?",
+      "question": "Welches Land hat ein Staatswappen mit drei Berggipfeln auf seiner Nationalflagge?",
       "options": [
-        { "id": "a", "label": "Bratislava (Slowakei)" },
-        { "id": "b", "label": "Ljubljana (Slowenien)" },
-        { "id": "c", "label": "Zagreb (Kroatien)" }
+        { "id": "a", "label": "Slowakei" },
+        { "id": "b", "label": "Slowenien" }
       ],
-      "correctOptionId": "a",
-      "fact": "Bratislava liegt direkt an der Donau und ist eine der am nächsten gelegenen Zwillingshauptstädte Europas."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Beide Antworten sind richtig! Das slowakische Wappen zeigt Tatra, Fatra und Matra; das slowenische Wappen den Berg Triglav.",
+      "factsByOption": {
+        "a": "Richtig für die Slowakei! Das slowakische Wappen zeigt die drei Gipfel Tatra, Fatra und Matra mit dem Doppelkreuz.",
+        "b": "Richtig für Slowenien! Das slowenische Wappen zeigt die drei Spitzen des Berges Triglav."
+      }
     },
     {
       "id": "de-2",
-      "question": "In welchem Land befindet sich der weltberühmte Bleder See mit der kleinen Inselkirche in den Julischen Alpen?",
+      "question": "Welches Land trat am 1. Mai 2004 der Europäischen Union bei und wurde historisch aus Wien regiert?",
       "options": [
-        { "id": "a", "label": "Slowenien" },
-        { "id": "b", "label": "Slowakei" },
-        { "id": "c", "label": "Österreich" }
+        { "id": "a", "label": "Slowakei" },
+        { "id": "b", "label": "Slowenien" }
       ],
-      "correctOptionId": "a",
-      "fact": "Der Bleder See mit seiner malerischen Marienkirche liegt im Nordwesten Sloweniens."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Beide Antworten sind richtig! Beide Nationen wurden aus Wien regiert und traten am 1. Mai 2004 der EU bei.",
+      "factsByOption": {
+        "a": "Richtig für die Slowakei! Die Slowakei trat am 1. Mai 2004 der EU bei und wurde historisch lange von Wien aus regiert.",
+        "b": "Richtig für Slowenien! Slowenien trat am 1. Mai 2004 der EU bei und wurde historisch lange von Wien aus regiert."
+      }
     },
     {
       "id": "de-3",
-      "question": "Welches Land hat die Hohe Tatra und den Gerlsdorfer Gipfel (Gerlachovský štít) als höchste Erhebung?",
+      "question": "Welches Land verwendet den Euro (€) als offizielle Währung?",
       "options": [
         { "id": "a", "label": "Slowakei" },
-        { "id": "b", "label": "Slowenien" },
-        { "id": "c", "label": "Ungarn" }
+        { "id": "b", "label": "Slowenien" }
       ],
-      "correctOptionId": "a",
-      "fact": "Die Hohe Tatra ist das kleinste Hochgebirge der Welt und liegt zum größten Teil in der Slowakei."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Beide Antworten sind richtig! Beide Länder haben den Euro als gesetzliches Zahlungsmittel eingeführt.",
+      "factsByOption": {
+        "a": "Richtig für die Slowakei! Die Slowakei führte 2009 den Euro als offizielle Währung ein.",
+        "b": "Richtig für Slowenien! Slowenien führte 2007 den Euro als offizielle Währung ein."
+      }
     }
   ],
   "hr": [
     {
       "id": "hr-1",
-      "question": "Koji se glavni grad nalazi na Dunavu, samo 60-ak kilometara udaljen od Beča?",
+      "question": "Koja zemlja ima grb s tri planinska vrha na svojoj nacionalnoj zastavi?",
       "options": [
-        { "id": "a", "label": "Bratislava (Slovačka)" },
-        { "id": "b", "label": "Ljubljana (Slovenija)" },
-        { "id": "c", "label": "Budimpešta (Mađarska)" }
+        { "id": "a", "label": "Slovačka" },
+        { "id": "b", "label": "Slovenija" }
       ],
-      "correctOptionId": "a",
-      "fact": "Bratislava i Beč su među geografski najbližim prijestolnicama u Europi."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obje su točne! Slovački grb prikazuje Tatru, Fatru i Matru, a slovenski vrh Triglav.",
+      "factsByOption": {
+        "a": "Točno za Slovačku! Slovački grb prikazuje tri planinska vrha (Tatra, Fatra i Matra) s dvostrukim križem.",
+        "b": "Točno za Sloveniju! Slovenski grb prikazuje tri vrha planine Triglav sa zlatnim zvijezdama."
+      }
     },
     {
       "id": "hr-2",
-      "question": "Koja država ima vrh Triglav (2.864 m) kao središnji simbol na svom državnom grbu?",
+      "question": "Koja je zemlja ušla u Europsku uniju 1. svibnja 2004. nakon što je bila dio slavenske federacije?",
       "options": [
-        { "id": "a", "label": "Slovenija" },
-        { "id": "b", "label": "Slovačka" },
-        { "id": "c", "label": "Austrija" }
+        { "id": "a", "label": "Slovačka" },
+        { "id": "b", "label": "Slovenija" }
       ],
-      "correctOptionId": "a",
-      "fact": "Triglav u Julijskim Alpama nacionalni je simbol Slovenije i nalazi se na njezinoj zastavi."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obje su točne! Obje su bile dijelom slavenskih federacija i ušle u EU na isti dan 2004.",
+      "factsByOption": {
+        "a": "Točno za Slovačku! Slovačka je postala članica EU 1. svibnja 2004. godine nakon dugog razdoblja pod Bečom i u Čehoslovačkoj.",
+        "b": "Točno za Sloveniju! Slovenija je postala članica EU 1. svibnja 2004. godine nakon razdoblja pod Bečom i u Jugoslaviji."
+      }
     },
     {
       "id": "hr-3",
-      "question": "Koja je država mirnim putem nastala raspadom Čehoslovačke 1. siječnja 1993.?",
+      "question": "Koja država graniči i s Austrijom i s Mađarskom?",
       "options": [
         { "id": "a", "label": "Slovačka" },
-        { "id": "b", "label": "Slovenija" },
-        { "id": "c", "label": "Poljska" }
+        { "id": "b", "label": "Slovenija" }
       ],
-      "correctOptionId": "a",
-      "fact": "Slovačka i Češka mirno su se razdružile u takozvanom Baršunastom razvodu 1993. godine."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obje su točne! I Slovačka i Slovenija dijele granice s Austrijom i Mađarskom.",
+      "factsByOption": {
+        "a": "Točno za Slovačku! Slovačka graniči s Austrijom na zapadu te s Mađarskom na jugu.",
+        "b": "Točno za Sloveniju! Slovenija graniči s Austrijom na sjeveru te s Mađarskom na sjeveroistoku."
+      }
     }
   ],
   "sk": [
     {
       "id": "sk-1",
-      "question": "Ktoré hlavné mesto leží priamo na rieke Dunaj, približne 60 km od Viedne?",
+      "question": "Ktorá krajina má na svojej štátnej vlajke erb s tromi horskými vrchmi?",
       "options": [
-        { "id": "a", "label": "Bratislava (Slovensko)" },
-        { "id": "b", "label": "Ľubľana (Slovinsko)" },
-        { "id": "c", "label": "Záhreb (Chorvátsko)" }
+        { "id": "a", "label": "Slovensko" },
+        { "id": "b", "label": "Slovinsko" }
       ],
-      "correctOptionId": "a",
-      "fact": "Bratislava a Viedeň sú dve najbližšie ležiace hlavné mestá v kontinentálnej Európe."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obe odpovede sú správne! Slovensko má trojvršie Tatra-Matra-Fatra a Slovinsko trojvrcholový Triglav.",
+      "factsByOption": {
+        "a": "Správne pre Slovensko! Slovenský štátny znak nesie trojvršie Tatra, Matra a Fatra s dvojkrížom.",
+        "b": "Správne pre Slovinsko! Slovinský štátny znak znázorňuje trojvrcholový masív Triglavu."
+      }
     },
     {
       "id": "sk-2",
-      "question": "V ktorej krajine sa nachádza ikonické Bledské jazero s ostrovným kostolíkom v Júlskych Alpách?",
+      "question": "Ktorý štát vstúpil do Európskej únie 1. mája 2004 a bol v minulosti riadený z Viedne?",
       "options": [
-        { "id": "a", "label": "Slovinsko" },
-        { "id": "b", "label": "Slovensko" },
-        { "id": "c", "label": "Rakúsko" }
+        { "id": "a", "label": "Slovensko" },
+        { "id": "b", "label": "Slovinsko" }
       ],
-      "correctOptionId": "a",
-      "fact": "Bledské jazero s malebným hradom a ostrovom je symbolom severozápadného Slovinska."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obe odpovede sú správne! Obe krajiny zdieľajú rovnaký historický dátum vstupu do EÚ.",
+      "factsByOption": {
+        "a": "Správne pre Slovensko! Slovensko vstúpilo do EÚ 1. mája 2004 a historicky bolo spravované z Viedne.",
+        "b": "Správne pre Slovinsko! Slovinsko vstúpilo do EÚ 1. mája 2004 a historicky bolo spravované z Viedne."
+      }
     },
     {
       "id": "sk-3",
-      "question": "Ktorá z týchto krajín má najvyšší vrchol Gerlachovský štít (2 655 m n. m.)?",
+      "question": "Ktorá z týchto krajín používa ako oficiálnu menu Euro (€)?",
       "options": [
         { "id": "a", "label": "Slovensko" },
-        { "id": "b", "label": "Slovinsko" },
-        { "id": "c", "label": "Poľsko" }
+        { "id": "b", "label": "Slovinsko" }
       ],
-      "correctOptionId": "a",
-      "fact": "Gerlachovský štít vo Vysokých Tatrách je najvyšším vrchom Slovenska aj celých Karpát."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obe odpovede sú správne! V oboch krajinách platíme eurom.",
+      "factsByOption": {
+        "a": "Správne pre Slovensko! Na Slovensku platíme eurom od roku 2009.",
+        "b": "Správne pre Slovinsko! V Slovinsku platia eurom od roku 2007."
+      }
     }
   ],
   "sl": [
     {
       "id": "sl-1",
-      "question": "Katera prestolnica leži neposredno ob reki Donavi, le dobro uro vožnje od Dunaja?",
+      "question": "Katera država ima na svoji državni zastavi grb s tremi gorskimi vrhovi?",
       "options": [
-        { "id": "a", "label": "Bratislava (Slovaška)" },
-        { "id": "b", "label": "Ljubljana (Slovenija)" },
-        { "id": "c", "label": "Gradec (Avstrija)" }
+        { "id": "a", "label": "Slovaška" },
+        { "id": "b", "label": "Slovenija" }
       ],
-      "correctOptionId": "a",
-      "fact": "Bratislava leži ob Donavi v neposredni bližini avstrijske meje."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obe sta pravilni! Slovenija ima Triglav, Slovaška pa trovršje Tatra-Fatra-Matra.",
+      "factsByOption": {
+        "a": "Pravilno za Slovaško! Slovaški grb ima trovršje Tatra, Fatra in Matra z dvojnim križem.",
+        "b": "Pravilno za Slovenijo! Slovenski grb ponosno nosi tri vrhove Triglava z zvezdami."
+      }
     },
     {
       "id": "sl-2",
-      "question": "Katera država ima goro Triglav (2.864 m) kot osrednji element na svojem državnem grbu?",
+      "question": "Katera država je 1. maja 2004 vstopila v Evropsko unijo?",
       "options": [
-        { "id": "a", "label": "Slovenija" },
-        { "id": "b", "label": "Slovaška" },
-        { "id": "c", "label": "Italija" }
+        { "id": "a", "label": "Slovaška" },
+        { "id": "b", "label": "Slovenija" }
       ],
-      "correctOptionId": "a",
-      "fact": "Triglav je najvišji vrh Julijskih Alp in ponosni simbol na slovenskem grbu."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obe sta pravilni! Obe državi sta v EU vstopili na isti dan leta 2004.",
+      "factsByOption": {
+        "a": "Pravilno za Slovaško! Slovaška je postala polnopravna članica EU 1. maja 2004.",
+        "b": "Pravilno za Slovenijo! Slovenija je postala polnopravna članica EU 1. maja 2004."
+      }
     },
     {
       "id": "sl-3",
-      "question": "V kateri državi se nahaja gorska veriga Visoke Tatre?",
+      "question": "Katera država meji tako na Avstrijo kot na Madžarsko?",
       "options": [
         { "id": "a", "label": "Slovaška" },
-        { "id": "b", "label": "Slovenija" },
-        { "id": "c", "label": "Madžarska" }
+        { "id": "b", "label": "Slovenija" }
       ],
-      "correctOptionId": "a",
-      "fact": "Visoke Tatre ležijo na severu Slovaške na meji s Poljsko."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obe sta pravilni! Obe državi mejita na Avstrijo in Madžarsko.",
+      "factsByOption": {
+        "a": "Pravilno za Slovaško! Slovaška deli svojo mejo tako z Avstrijo kot z Madžarsko.",
+        "b": "Pravilno za Slovenijo! Slovenija deli svojo mejo tako z Avstrijo kot z Madžarsko."
+      }
     }
   ],
   "cs": [
     {
       "id": "cs-1",
-      "question": "Které hlavní město leží na řece Dunaji přibližně 60 km východně od Vídně?",
+      "question": "Která země má na své národní vlajce znak se třemi horskými vrcholy?",
       "options": [
-        { "id": "a", "label": "Bratislava (Slovensko)" },
-        { "id": "b", "label": "Lublaň (Slovinsko)" },
-        { "id": "c", "label": "Záhřeb (Chorvatsko)" }
+        { "id": "a", "label": "Slovensko" },
+        { "id": "b", "label": "Slovinsko" }
       ],
-      "correctOptionId": "a",
-      "fact": "Bratislava a Vídeň patří k nejblíže ležícím hlavním městům v celé Evropě."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obě odpovědi jsou správné! Slovensko má Tatru, Fatru a Matru; Slovinsko horu Triglav.",
+      "factsByOption": {
+        "a": "Správně pro Slovensko! Slovenský znak nese trojvrší Tatra, Matra a Fatra s dvojkřížem.",
+        "b": "Správně pro Slovinsko! Slovinský znak znázorňuje trojvrchol hory Triglav."
+      }
     },
     {
       "id": "cs-2",
-      "question": "Ve které zemi se nachází jezero Bled s ostrovním kostelem v Julských Alpách?",
+      "question": "Který stát vstoupil do Evropské unie 1. května 2004 a byl historicky spravován z Vídně?",
       "options": [
-        { "id": "a", "label": "Slovinsko" },
-        { "id": "b", "label": "Slovensko" },
-        { "id": "c", "label": "Rakousko" }
+        { "id": "a", "label": "Slovensko" },
+        { "id": "b", "label": "Slovinsko" }
       ],
-      "correctOptionId": "a",
-      "fact": "Bledské jezero je jedním z nejznámějších symbolů Slovinska."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obě odpovědi jsou správné! Oba státy sdílejí totožnou historickou linii.",
+      "factsByOption": {
+        "a": "Správně pro Slovensko! Slovensko vstoupilo do EU 1. května 2004 a po staletí spadalo pod habsburskou Vídeň.",
+        "b": "Správně pro Slovinsko! Slovinsko vstoupilo do EU 1. května 2004 a po staletí spadalo pod habsburskou Vídeň."
+      }
     },
     {
       "id": "cs-3",
-      "question": "Která země se pokojně osamostatnila po rozpadu společného státu k 1. lednu 1993?",
+      "question": "Která země přímo sousedí s Rakouskem i Maďarskem?",
       "options": [
         { "id": "a", "label": "Slovensko" },
-        { "id": "b", "label": "Slovinsko" },
-        { "id": "c", "label": "Polsko" }
+        { "id": "b", "label": "Slovinsko" }
       ],
-      "correctOptionId": "a",
-      "fact": "Slovensko a Česká republika se v klidu rozdělily v roce 1993."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Obě odpovědi jsou správné! Jak Slovensko, tak Slovinsko hraničí s oběma těmito státy.",
+      "factsByOption": {
+        "a": "Správně pro Slovensko! Slovensko sousedí na západě s Rakouskem a na jihu s Maďarskem.",
+        "b": "Správně pro Slovinsko! Slovinsko sousedí na severu s Rakouskem a na severovýchodě s Maďarskem."
+      }
     }
   ],
   "pt-BR": [
     {
       "id": "ptbr-1",
-      "question": "Qual capital europeia fica situada às margens do rio Danúbio, a cerca de 60 km de Viena?",
+      "question": "Qual destes países possui um brasão de armas com três picos montanhosos em sua bandeira?",
       "options": [
-        { "id": "a", "label": "Bratislava (Eslováquia)" },
-        { "id": "b", "label": "Liubliana (Eslovênia)" },
-        { "id": "c", "label": "Zagreb (Croácia)" }
+        { "id": "a", "label": "Eslováquia" },
+        { "id": "b", "label": "Eslovênia" }
       ],
-      "correctOptionId": "a",
-      "fact": "Bratislava é a capital da Eslováquia e fica extremamente próxima de Viena, ligadas pelo rio Danúbio."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Ambas as respostas estão corretas! A Eslováquia tem os picos Tatra, Fatra e Matra, enquanto a Eslovênia tem o Monte Triglav.",
+      "factsByOption": {
+        "a": "Correto para a Eslováquia! O brasão eslovaco estampa os três picos de Tatra, Fatra e Matra encimados pela cruz dupla.",
+        "b": "Correto para a Eslovênia! O brasão esloveno estampa os três picos do Monte Triglav com estrelas douradas."
+      }
     },
     {
       "id": "ptbr-2",
-      "question": "Em qual país fica o famoso Lago Bled, com uma igreja no centro de uma ilha nos Alpes Julianos?",
+      "question": "Qual nação ingressou na União Europeia em 1º de maio de 2004 e foi governada a partir de Viena?",
       "options": [
-        { "id": "a", "label": "Eslovênia" },
-        { "id": "b", "label": "Eslováquia" },
-        { "id": "c", "label": "Áustria" }
+        { "id": "a", "label": "Eslováquia" },
+        { "id": "b", "label": "Eslovênia" }
       ],
-      "correctOptionId": "a",
-      "fact": "O Lago Bled é uma das atrações naturais mais visitadas e conhecidas do noroeste da Eslovênia."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Ambas as respostas estão corretas! Ambas compartilham a mesma data histórica de adesão à União Europeia.",
+      "factsByOption": {
+        "a": "Correto para a Eslováquia! A Eslováquia ingressou na UE em 1º de maio de 2004 e foi governada a partir de Viena no período habsburgo.",
+        "b": "Correto para a Eslovênia! A Eslovênia ingressou na UE em 1º de maio de 2004 e foi governada a partir de Viena no período habsburgo."
+      }
     },
     {
       "id": "ptbr-3",
-      "question": "Qual nação tem o Monte Triglav (2.864 m) desenhado em seu brasão oficial?",
+      "question": "Qual destes dois países utiliza o Euro (€) como moeda oficial?",
       "options": [
-        { "id": "a", "label": "Eslovênia" },
-        { "id": "b", "label": "Eslováquia" },
-        { "id": "c", "label": "Suíça" }
+        { "id": "a", "label": "Eslováquia" },
+        { "id": "b", "label": "Eslovênia" }
       ],
-      "correctOptionId": "a",
-      "fact": "O Monte Triglav, o ponto mais alto dos Alpes Julianos, estampa o brasão e a bandeira eslovena."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Ambas as respostas estão corretas! O Euro é a moeda oficial de ambos os países.",
+      "factsByOption": {
+        "a": "Correto para a Eslováquia! A Eslováquia adotou oficialmente o Euro em 2009.",
+        "b": "Correto para a Eslovênia! A Eslovênia adotou oficialmente o Euro em 2007."
+      }
     }
   ],
   "pt-PT": [
     {
       "id": "ptpt-1",
-      "question": "Qual destas nações acolheu a corte real e foi a sede oficial da monarquia portuguesa entre 1808 e 1821?",
+      "question": "Qual destes países foi governado diretamente a partir do Rio de Janeiro durante o início do século XIX?",
       "options": [
-        { "id": "a", "label": "Brasil (Rio de Janeiro)" },
-        { "id": "b", "label": "Portugal (Lisboa)" },
-        { "id": "c", "label": "Espanha (Madrid)" }
+        { "id": "a", "label": "Portugal" },
+        { "id": "b", "label": "Brasil" }
       ],
-      "correctOptionId": "a",
-      "fact": "A transferência da corte de D. João VI para o Rio de Janeiro em 1808 transformou a cidade na única capital de um império europeu situada nas Américas."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Ambas as respostas estão corretas! D. João VI governou a totalidade do império (incluindo Portugal e o Brasil) a partir do Rio de Janeiro entre 1808 e 1821.",
+      "factsByOption": {
+        "a": "Correto para Portugal! A corte portuguesa de D. João VI governou a totalidade do reino a partir do Rio de Janeiro entre 1808 e 1821.",
+        "b": "Correto para o Brasil! O Rio de Janeiro foi a capital e sede oficial da corte de D. João VI entre 1808 e 1821."
+      }
     },
     {
       "id": "ptpt-2",
-      "question": "Em que país nasceu o Fado, género musical classificado pela UNESCO como Património Imaterial da Humanidade?",
+      "question": "Qual destas duas nações tem o Português como língua oficial e o futebol como paixão desportiva máxima?",
       "options": [
         { "id": "a", "label": "Portugal" },
-        { "id": "b", "label": "Brasil" },
-        { "id": "c", "label": "Cabo Verde" }
+        { "id": "b", "label": "Brasil" }
       ],
-      "correctOptionId": "a",
-      "fact": "O Fado tem raízes nos bairros históricos de Lisboa (como Alfama e Mouraria) no início do século XIX."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Ambas as respostas estão corretas! Partilham a mesma língua oficial e a mesma paixão histórica pelo futebol.",
+      "factsByOption": {
+        "a": "Correto para Portugal! O Português é a língua oficial de Camões e o futebol move multidões em todos os estádios.",
+        "b": "Correto para o Brasil! O Português é a língua oficial de mais de 200 milhões de habitantes e o futebol é paixão sagrada."
+      }
     },
     {
       "id": "ptpt-3",
-      "question": "Qual dos dois países abriga a maior extensão da bacia hidrográfica e floresta amazónica?",
+      "question": "Qual destes países atravessou um período de ditadura autoritária em meados do século XX antes de consolidar a democracia na década de 1980?",
       "options": [
-        { "id": "a", "label": "Brasil" },
-        { "id": "b", "label": "Portugal" },
-        { "id": "c", "label": "Colômbia" }
+        { "id": "a", "label": "Portugal" },
+        { "id": "b", "label": "Brasil" }
       ],
-      "correctOptionId": "a",
-      "fact": "O Brasil concentra mais de 60% da floresta amazónica no seu território nacional."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Ambas as respostas estão corretas! Tanto Portugal (Estado Novo) como o Brasil (regime militar) viveram regimes autoritários no século XX antes da transição democrática.",
+      "factsByOption": {
+        "a": "Correto para Portugal! O regime do Estado Novo vigorou durante décadas no século XX até à Revolução dos Cravos e à estabilização democrática.",
+        "b": "Correto para o Brasil! O regime militar governou o país durante décadas até à campanha das Diretas Já e à Constituição de 1988."
+      }
     },
     {
       "id": "ptpt-4",
-      "question": "Qual destas duas nações adotou o Euro como moeda oficial a partir de 2002?",
+      "question": "Qual das duas nações possui uma extensa costa marítima no Oceano Atlântico e uma profunda tradição naval?",
       "options": [
         { "id": "a", "label": "Portugal" },
-        { "id": "b", "label": "Brasil" },
-        { "id": "c", "label": "Reino Unido" }
+        { "id": "b", "label": "Brasil" }
       ],
-      "correctOptionId": "a",
-      "fact": "Portugal fez parte do grupo inaugural de países que adotou o Euro, substituindo o antigo Escudo português."
+      "correctOptionIds": ["a", "b"],
+      "fact": "Ambas as respostas estão corretas! Ambos os países têm uma ligação histórica e geográfica direta com o Atlântico.",
+      "factsByOption": {
+        "a": "Correto para Portugal! Portugal tem toda a sua frente marítima voltada para o Oceano Atlântico e séculos de história naval pioneira.",
+        "b": "Correto para o Brasil! O Brasil possui mais de 7.400 km de litoral no Oceano Atlântico e uma profunda tradição costeira e marítima."
+      }
     }
   ]
 }
