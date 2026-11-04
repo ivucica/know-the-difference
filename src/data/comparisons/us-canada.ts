@@ -22,9 +22,9 @@ export const usCanadaDataset: CountryComparisonDataset = {
   disclaimer: 'Published for patriotic cartographers, Sharpie enthusiasts, and trade negotiators confused by northern borders.',
   theme: PATRIOTIC_US_THEME,
   flags: {
-    defaultSwapped: true, // Default swapped, clicking directly on flags toggles alignment
-    leftFlagId: 'canada',
-    rightFlagId: 'usa',
+    defaultSwapped: true, // Default swapped (Canada flag under US, US flag under Canada)
+    leftFlagId: 'usa',
+    rightFlagId: 'canada',
   },
   musicMode: 'us-patriotic-march',
   musicTitle: 'Grand Patriotic Sousa March',

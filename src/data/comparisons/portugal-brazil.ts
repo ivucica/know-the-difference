@@ -22,7 +22,7 @@ export const portugalBrazilDataset: CountryComparisonDataset = {
   disclaimer: 'Criado para geógrafos, historiadores e lusófonos atentos às subtis semelhanças atlânticas.',
   theme: LUSOPHONE_THEME,
   flags: {
-    defaultSwapped: false, // Default aligned, click toggles smoothly
+    defaultSwapped: true, // Default swapped (Brazil flag under Portugal, Portugal flag under Brazil)
     leftFlagId: 'portugal',
     rightFlagId: 'brazil',
   },
