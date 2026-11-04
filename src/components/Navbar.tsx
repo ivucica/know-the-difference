@@ -12,7 +12,7 @@ interface NavbarProps {
 }
 
 export const LANGUAGES: { code: SupportedLanguage; label: string; flag: string }[] = [
-  { code: 'en', label: 'English', flag: '🇬🇧' },
+  { code: 'en', label: 'English (UK)', flag: '🇬🇧' },
   { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
   { code: 'hr', label: 'Hrvatski', flag: '🇭🇷' },
   { code: 'sk', label: 'Slovenčina', flag: '🇸🇰' },
@@ -20,6 +20,7 @@ export const LANGUAGES: { code: SupportedLanguage; label: string; flag: string }
   { code: 'cs', label: 'Čeština', flag: '🇨🇿' },
   { code: 'pt-BR', label: 'Português (Brasil)', flag: '🇧🇷' },
   { code: 'pt-PT', label: 'Português (Portugal)', flag: '🇵🇹' },
+  { code: 'en-US', label: 'English (US)', flag: '🇺🇸' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({

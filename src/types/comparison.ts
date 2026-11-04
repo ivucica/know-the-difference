@@ -1,4 +1,4 @@
-export type SupportedLanguage = 'en' | 'de' | 'hr' | 'sk' | 'sl' | 'cs' | 'pt-BR' | 'pt-PT';
+export type SupportedLanguage = 'en' | 'en-US' | 'de' | 'hr' | 'sk' | 'sl' | 'cs' | 'pt-BR' | 'pt-PT';
 
 export interface ComparisonItem {
   left: string;
@@ -14,9 +14,9 @@ export interface ComparisonSection {
 }
 
 export interface ComparisonTheme {
-  primaryAccent: string;     // e.g. '#c8102e' (Red) or '#006600' (Forest Green)
-  primaryHover: string;      // e.g. '#a60d26' or '#004d1a'
-  secondaryAccent: string;   // e.g. '#b91c1c' or '#d97706' (Warm Gold)
+  primaryAccent: string;     // e.g. '#c8102e' (Red), '#006600' (Forest Green), or '#002868' (Navy)
+  primaryHover: string;
+  secondaryAccent: string;   // e.g. '#b91c1c', '#d97706' (Gold), or '#bf0a30' (American Red)
   taglineColor: string;
   punchlineColor: string;
   bulletColor: string;
@@ -36,11 +36,11 @@ export interface CountryComparisonDataset {
   theme: ComparisonTheme;
   flags: {
     defaultSwapped: boolean;
-    leftFlagId: 'slovakia' | 'slovenia' | 'portugal' | 'brazil';
-    rightFlagId: 'slovakia' | 'slovenia' | 'portugal' | 'brazil';
+    leftFlagId: 'slovakia' | 'slovenia' | 'portugal' | 'brazil' | 'usa' | 'canada';
+    rightFlagId: 'slovakia' | 'slovenia' | 'portugal' | 'brazil' | 'usa' | 'canada';
   };
   sections: ComparisonSection[];
-  musicMode: 'slavic-polka' | 'portugal-brazil-fusion';
+  musicMode: 'slavic-polka' | 'portugal-brazil-fusion' | 'us-patriotic-march';
   musicTitle: string;
   quizTitle: string;
   quizSub: string;

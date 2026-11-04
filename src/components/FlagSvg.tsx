@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type FlagId = 'slovakia' | 'slovenia' | 'portugal' | 'brazil';
+export type FlagId = 'slovakia' | 'slovenia' | 'portugal' | 'brazil' | 'usa' | 'canada';
 
 interface FlagSvgProps {
   flag: FlagId;
@@ -27,16 +27,11 @@ export const FlagSvg: React.FC<FlagSvgProps> = ({ flag, className = '', isWaving
 
         {flag === 'slovakia' && (
           <g>
-            {/* White stripe */}
             <rect width="600" height="133.33" fill="#FFFFFF" />
-            {/* Blue stripe */}
             <rect y="133.33" width="600" height="133.33" fill="#0B4EA2" />
-            {/* Red stripe */}
             <rect y="266.66" width="600" height="133.34" fill="#EE1C25" />
 
-            {/* Slovak Coat of Arms (shifted hoist-side, x=135) */}
             <g transform="translate(130, 60) scale(1.18)" filter={`url(#fabric-shadow-${flag})`}>
-              {/* Outer white outline */}
               <path
                 d="M 10 10 L 80 10 C 80 75 68 115 45 136 C 22 115 10 75 10 10 Z"
                 fill="#EE1C25"
@@ -44,16 +39,12 @@ export const FlagSvg: React.FC<FlagSvgProps> = ({ flag, className = '', isWaving
                 strokeWidth="5"
                 strokeLinejoin="round"
               />
-              {/* Blue three peaks (Tatra, Matra, Fatra) */}
               <path
                 d="M 14 112 C 22 84 32 84 45 98 C 58 84 68 84 76 112 C 60 128 45 132 45 132 C 45 132 30 128 14 112 Z"
                 fill="#0B4EA2"
               />
-              {/* White Patriarchal double cross */}
               <rect x="41.5" y="26" width="7" height="74" fill="#FFFFFF" rx="1.5" />
-              {/* Upper shorter bar */}
               <rect x="29" y="42" width="32" height="6.5" fill="#FFFFFF" rx="1.5" />
-              {/* Lower longer bar */}
               <rect x="23" y="60" width="44" height="6.5" fill="#FFFFFF" rx="1.5" />
             </g>
           </g>
@@ -61,16 +52,11 @@ export const FlagSvg: React.FC<FlagSvgProps> = ({ flag, className = '', isWaving
 
         {flag === 'slovenia' && (
           <g>
-            {/* White stripe */}
             <rect width="600" height="133.33" fill="#FFFFFF" />
-            {/* Blue stripe */}
             <rect y="133.33" width="600" height="133.33" fill="#005DA4" />
-            {/* Red stripe */}
             <rect y="266.66" width="600" height="133.34" fill="#ED1C24" />
 
-            {/* Slovenian Coat of Arms (top-left, spanning white and blue stripes) */}
             <g transform="translate(115, 70) scale(0.95)" filter={`url(#fabric-shadow-${flag})`}>
-              {/* Shield container with red edge */}
               <path
                 d="M 0 0 L 80 0 C 80 60 68 105 40 125 C 12 105 0 60 0 0 Z"
                 fill="#005DA4"
@@ -78,12 +64,10 @@ export const FlagSvg: React.FC<FlagSvgProps> = ({ flag, className = '', isWaving
                 strokeWidth="6"
                 strokeLinejoin="round"
               />
-              {/* White Mount Triglav silhouette */}
               <path
                 d="M 12 85 L 26 50 L 40 66 L 54 50 L 68 85 Z"
                 fill="#FFFFFF"
               />
-              {/* Two wavy blue lines (Adriatic & rivers) */}
               <path
                 d="M 16 94 Q 28 88 40 94 T 64 94"
                 fill="none"
@@ -98,18 +82,14 @@ export const FlagSvg: React.FC<FlagSvgProps> = ({ flag, className = '', isWaving
                 strokeWidth="4.5"
                 strokeLinecap="round"
               />
-              {/* Three golden six-pointed stars of Celje */}
-              {/* Top Star */}
               <polygon
                 points="40,10 42,18 50,18 43,23 46,31 40,26 34,31 37,23 30,18 38,18"
                 fill="#FFCC00"
               />
-              {/* Bottom Left Star */}
               <polygon
                 points="24,28 26,34 33,34 27,38 29,45 24,41 19,45 21,38 15,34 22,34"
                 fill="#FFCC00"
               />
-              {/* Bottom Right Star */}
               <polygon
                 points="56,28 58,34 65,34 59,38 61,45 56,41 51,45 53,38 47,34 54,34"
                 fill="#FFCC00"
@@ -120,20 +100,15 @@ export const FlagSvg: React.FC<FlagSvgProps> = ({ flag, className = '', isWaving
 
         {flag === 'portugal' && (
           <g>
-            {/* Green 2/5 */}
             <rect width="240" height="400" fill="#006600" />
-            {/* Red 3/5 */}
             <rect x="240" width="360" height="400" fill="#FF0000" />
 
-            {/* Armillary Sphere & Shield centered on the partition line */}
             <g transform="translate(240, 200) scale(1.15)" filter={`url(#fabric-shadow-${flag})`}>
-              {/* Golden Armillary Sphere rings */}
               <circle r="72" fill="none" stroke="#FFCC00" strokeWidth="8" />
               <circle r="48" fill="none" stroke="#FFCC00" strokeWidth="4" />
               <path d="M -72 0 L 72 0 M 0 -72 L 0 72" stroke="#FFCC00" strokeWidth="4" />
               <ellipse rx="70" ry="24" fill="none" stroke="#FFCC00" strokeWidth="3" transform="rotate(-30)" />
 
-              {/* Red Shield with Yellow Castles */}
               <path
                 d="M -32 -42 L 32 -42 L 32 20 C 32 46 0 58 0 58 C 0 58 -32 46 -32 20 Z"
                 fill="#FFFFFF"
@@ -144,19 +119,16 @@ export const FlagSvg: React.FC<FlagSvgProps> = ({ flag, className = '', isWaving
                 d="M -32 -42 L 32 -42 L 32 -14 L -32 -14 Z"
                 fill="#FF0000"
               />
-              {/* Yellow Castles */}
               <rect x="-20" y="-34" width="8" height="9" fill="#FFCC00" />
               <rect x="12" y="-34" width="8" height="9" fill="#FFCC00" />
               <rect x="-4" y="-36" width="8" height="9" fill="#FFCC00" />
 
-              {/* Inner White Shield with Five Blue Quinas */}
               <path
                 d="M -22 -6 L 22 -6 L 22 18 C 22 36 0 46 0 46 C 0 46 -22 36 -22 18 Z"
                 fill="#FFFFFF"
                 stroke="#005DA4"
                 strokeWidth="2"
               />
-              {/* Quinas dots */}
               <circle cx="0" cy="8" r="4" fill="#005DA4" />
               <circle cx="-10" cy="8" r="4" fill="#005DA4" />
               <circle cx="10" cy="8" r="4" fill="#005DA4" />
@@ -168,18 +140,13 @@ export const FlagSvg: React.FC<FlagSvgProps> = ({ flag, className = '', isWaving
 
         {flag === 'brazil' && (
           <g>
-            {/* Green field */}
             <rect width="600" height="400" fill="#009B3A" />
-            {/* Yellow rhombus */}
             <polygon points="300,35 565,200 300,365 35,200" fill="#FEDF00" />
-            {/* Blue celestial globe */}
             <circle cx="300" cy="200" r="96" fill="#002776" filter={`url(#fabric-shadow-${flag})`} />
-            {/* White curved band for Ordem e Progresso */}
             <path
               d="M 208 222 C 265 170 335 170 392 214 C 335 186 265 186 208 222 Z"
               fill="#FFFFFF"
             />
-            {/* Southern Cross and southern hemisphere stars */}
             <circle cx="270" cy="245" r="3" fill="#FFFFFF" />
             <circle cx="318" cy="235" r="3" fill="#FFFFFF" />
             <circle cx="335" cy="255" r="2.5" fill="#FFFFFF" />
@@ -187,6 +154,61 @@ export const FlagSvg: React.FC<FlagSvgProps> = ({ flag, className = '', isWaving
             <circle cx="280" cy="225" r="2" fill="#FFFFFF" />
             <circle cx="345" cy="225" r="2" fill="#FFFFFF" />
             <circle cx="300" cy="245" r="2" fill="#FFFFFF" />
+          </g>
+        )}
+
+        {flag === 'usa' && (
+          <g>
+            {/* 13 Stripes */}
+            {Array.from({ length: 13 }).map((_, i) => (
+              <rect
+                key={i}
+                y={i * (400 / 13)}
+                width="600"
+                height={400 / 13 + 0.5}
+                fill={i % 2 === 0 ? '#B22234' : '#FFFFFF'}
+              />
+            ))}
+            {/* Blue Canton */}
+            <rect width="250" height={(400 / 13) * 7} fill="#3C3B6E" />
+            {/* 51 Stars (Satirical 51st state layout) */}
+            <g fill="#FFFFFF" transform="scale(0.85) translate(15, 12)">
+              {/* Pattern of stars */}
+              {[
+                [20, 20], [60, 20], [100, 20], [140, 20], [180, 20], [220, 20],
+                [40, 45], [80, 45], [120, 45], [160, 45], [200, 45],
+                [20, 70], [60, 70], [100, 70], [140, 70], [180, 70], [220, 70],
+                [40, 95], [80, 95], [120, 95], [160, 95], [200, 95],
+                [20, 120], [60, 120], [100, 120], [140, 120], [180, 120], [220, 120],
+                [40, 145], [80, 145], [120, 145], [160, 145], [200, 145],
+                [20, 170], [60, 170], [100, 170], [140, 170], [180, 170], [220, 170],
+                [40, 195], [80, 195], [120, 195], [160, 195], [200, 195],
+                [20, 220], [60, 220], [100, 220], [140, 220], [180, 220], [220, 220]
+              ].map(([cx, cy], i) => (
+                <polygon
+                  key={i}
+                  points={`${cx},${cy - 8} ${cx + 2.4},${cy - 2.5} ${cx + 8},${cy - 2.5} ${cx + 3.4},${cy + 1.5} ${cx + 5.2},${cy + 7.5} ${cx},${cy + 3.8} ${cx - 5.2},${cy + 7.5} ${cx - 3.4},${cy + 1.5} ${cx - 8},${cy - 2.5} ${cx - 2.4},${cy - 2.5}`}
+                />
+              ))}
+            </g>
+          </g>
+        )}
+
+        {flag === 'canada' && (
+          <g>
+            {/* Red left bar */}
+            <rect width="150" height="400" fill="#FF0000" />
+            {/* White central square */}
+            <rect x="150" width="300" height="400" fill="#FFFFFF" />
+            {/* Red right bar */}
+            <rect x="450" width="150" height="400" fill="#FF0000" />
+            {/* Stylized 11-pointed Maple Leaf */}
+            <g transform="translate(300, 200) scale(1.4)" filter={`url(#fabric-shadow-${flag})`}>
+              <path
+                d="M 0 85 L 3 45 L 8 47 L 22 55 L 25 43 L 38 48 L 52 38 L 47 30 L 70 20 L 72 8 L 55 5 L 68 -15 L 48 -18 L 40 -12 L 42 -30 L 28 -28 L 30 -45 L 18 -40 L 0 -85 L -18 -40 L -30 -45 L -28 -28 L -42 -30 L -40 -12 L -48 -18 L -68 -15 L -55 5 L -72 8 L -70 20 L -47 30 L -52 38 L -38 48 L -25 43 L -22 55 L -8 47 L -3 45 Z"
+                fill="#FF0000"
+              />
+            </g>
           </g>
         )}
       </svg>

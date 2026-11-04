@@ -71,6 +71,108 @@
       }
     }
   ],
+  "en-US": [
+    {
+      "id": "enus-1",
+      "question": "Which country features a coat of arms with three mountain peaks on its tricolor flag?",
+      "options": [
+        { "id": "a", "label": "Slovakia" },
+        { "id": "b", "label": "Slovenia" }
+      ],
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Slovakia features the Tatra, Fatra, and Mátra peaks, while Slovenia features Mount Triglav.",
+      "factsByOption": {
+        "a": "That's correct for Slovakia! The Slovak coat of arms features the three mountain peaks of Tatra, Fatra, and Mátra crowned with a patriarchal double cross.",
+        "b": "That's correct for Slovenia! The Slovenian coat of arms features the three peaks of Mount Triglav above wavy blue lines and golden stars."
+      }
+    },
+    {
+      "id": "enus-2",
+      "question": "Which nation acceded to the European Union on May 1, 2004, after spending centuries under Austro-Hungarian rule?",
+      "options": [
+        { "id": "a", "label": "Slovakia" },
+        { "id": "b", "label": "Slovenia" }
+      ],
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Both nations were ruled from Vienna, joined Slavic federations after WWI, and joined the EU together on May 1, 2004.",
+      "factsByOption": {
+        "a": "That's correct for Slovakia! Slovakia officially joined the European Union on May 1, 2004, having previously been governed from Vienna during the Habsburg period.",
+        "b": "That's correct for Slovenia! Slovenia officially joined the European Union on May 1, 2004, having previously been governed from Vienna during the Habsburg period."
+      }
+    },
+    {
+      "id": "enus-3",
+      "question": "Which country adopted the Euro (€) as its sole legal tender and official currency?",
+      "options": [
+        { "id": "a", "label": "Slovakia" },
+        { "id": "b", "label": "Slovenia" }
+      ],
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Slovenia adopted the Euro in 2007, and Slovakia adopted the Euro in 2009.",
+      "factsByOption": {
+        "a": "That's correct for Slovakia! Slovakia adopted the Euro (€) as its official currency on January 1, 2009, replacing the Slovak koruna.",
+        "b": "That's correct for Slovenia! Slovenia adopted the Euro (€) as its official currency on January 1, 2007, replacing the Slovenian tolar."
+      }
+    }
+  ],
+  "us-ca-satire": [
+    {
+      "id": "usca-1",
+      "question": "Which country shares the longest undefended international border on planet Earth?",
+      "options": [
+        { "id": "a", "label": "United States" },
+        { "id": "b", "label": "Canada" }
+      ],
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! The US and Canada share the world's longest undefended border (8,891 km).",
+      "factsByOption": {
+        "a": "That's correct for the United States! The US shares the world's longest undefended border (8,891 km) with its northern neighbor Canada.",
+        "b": "That's correct for Canada! Canada shares the world's longest undefended border (8,891 km) with the United States."
+      }
+    },
+    {
+      "id": "usca-2",
+      "question": "Which nation was threatened with sweeping 100% tariffs after someone drew a circle with a black Sharpie on a map?",
+      "options": [
+        { "id": "a", "label": "United States" },
+        { "id": "b", "label": "Canada" }
+      ],
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Sudden tariff threats on steel and lumber triggered trade alarms on both sides of the border.",
+      "factsByOption": {
+        "a": "That's correct for the United States! Trade representatives issued broad 100% tariff directives following late-night executive Sharpie declarations.",
+        "b": "That's correct for Canada! Canada found its timber and energy caught in sudden tariff crosshairs along with Slovakia after geographic map confusion."
+      }
+    },
+    {
+      "id": "usca-3",
+      "question": "Which North American nation has ice hockey as a premier cultural pastime and consumes monumental quantities of maple syrup?",
+      "options": [
+        { "id": "a", "label": "United States" },
+        { "id": "b", "label": "Canada" }
+      ],
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Millions of fans follow the sport, and both nations dominate global maple syrup consumption and production.",
+      "factsByOption": {
+        "a": "That's correct for the United States! Over 500,000 Americans play organized hockey, and the US is the single largest consumer of maple syrup in the world.",
+        "b": "That's correct for Canada! Ice hockey is Canada's official national winter sport, and Canadian forests produce over 70% of the world's maple syrup supply."
+      }
+    },
+    {
+      "id": "usca-4",
+      "question": "Which country had cable news anchors and late-night rallies declare that its neighbor might soon become 'State Number 51'?",
+      "options": [
+        { "id": "a", "label": "United States" },
+        { "id": "b", "label": "Canada" }
+      ],
+      "correctOptionIds": ["a", "b"],
+      "fact": "Both are correct! Pundits in Washington regularly fantasize about annexing Canada as the 51st state, while Canadians listen in disbelief.",
+      "factsByOption": {
+        "a": "That's correct for the United States! Pundits and campaign rallies frequently boast about absorbing northern territories into an expanded 51-state union.",
+        "b": "That's correct for Canada! Canadian citizens frequently have to listen to foreign television pundits casually debating their status as an honorary 51st state."
+      }
+    }
+  ],
   "de": [
     {
       "id": "de-1",

@@ -12,12 +12,14 @@ interface MemePosterProps {
   dataset: CountryComparisonDataset;
   isFlagSwapped: boolean;
   onToggleFlagSwap: () => void;
+  onCelebrateClick?: () => void;
 }
 
 export const MemePoster: React.FC<MemePosterProps> = ({
   dataset,
   isFlagSwapped,
   onToggleFlagSwap,
+  onCelebrateClick,
 }) => {
   const { theme, flags } = dataset;
 
@@ -43,6 +45,9 @@ export const MemePoster: React.FC<MemePosterProps> = ({
       origin: { y: 0.75 },
       colors: [theme.primaryAccent, theme.secondaryAccent, '#ffffff', '#000000'],
     });
+    if (onCelebrateClick) {
+      onCelebrateClick();
+    }
   };
 
   return (

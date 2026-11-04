@@ -77,6 +77,72 @@ export const slovakiaSloveniaDatasets: Record<string, CountryComparisonDataset> 
     ],
   },
 
+  'en-US': {
+    id: 'sk-sl-en-us',
+    leftCountry: 'Slovakia',
+    rightCountry: 'Slovenia',
+    leftCode: 'SK',
+    rightCode: 'SI',
+    tagline: 'Know the difference!',
+    punchline: 'Now you learned how distinct these nations are!',
+    btnCelebrate: 'Celebrate Distinction!',
+    disclaimer: 'Created for geographers, diplomats, and international travelers comparing Central European nations.',
+    theme: SLAVIC_THEME,
+    flags: {
+      defaultSwapped: true,
+      leftFlagId: 'slovenia',
+      rightFlagId: 'slovakia',
+    },
+    musicMode: 'slavic-polka',
+    musicTitle: 'Slavic Folk Polka',
+    quizTitle: 'Central European Trivia Quiz',
+    quizSub: 'Test your knowledge on the history and geography of these two nations.',
+    sections: [
+      {
+        id: 'flag',
+        heading: 'FLAG',
+        items: [
+          { left: 'White, blue and red.', right: 'White, blue and red.' },
+          { left: 'Coat of arms with three peaks.', right: 'Coat of arms with three peaks.' },
+        ],
+      },
+      {
+        id: 'language',
+        heading: 'LANGUAGE',
+        items: [
+          { left: 'Slovenčina.', right: 'Slovinčina.', leftVoice: 'sk-SK', rightVoice: 'sl-SI' },
+        ],
+      },
+      {
+        id: 'geography',
+        heading: 'GEOGRAPHY',
+        items: [
+          { left: 'Mountains.', right: 'Mountains.' },
+          { left: 'Physically Europe, mentally Balkans.', right: 'Physically Balkans, mentally Europe.' },
+        ],
+      },
+      {
+        id: 'history',
+        heading: 'HISTORY',
+        items: [
+          { left: 'Historically their state did not exist.', right: 'Historically their state did not exist.' },
+          { left: 'Most of the time, ruled from Vienna.', right: 'Most of the time, ruled from Vienna.' },
+          { left: 'Part of a Slavic federation after WWI.', right: 'Part of a Slavic federation after WWI.' },
+          { left: 'Communism.', right: 'Communism.' },
+          { left: "Gained independence in early 90's.", right: "Gained independence in early 90's." },
+          { left: 'Joined the EU in 2004.', right: 'Joined the EU in 2004.' },
+        ],
+      },
+      {
+        id: 'currency',
+        heading: 'CURRENCY',
+        items: [
+          { left: 'EUR', right: 'EUR' },
+        ],
+      },
+    ],
+  },
+
   de: {
     id: 'sk-sl-de',
     leftCountry: 'Slowakei',
