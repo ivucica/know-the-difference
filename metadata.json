@@ -1,0 +1,6 @@
+{
+  "name": "Slovakia vs Slovenia - Know The Difference!",
+  "description": "An interactive, animation-rich meme comparison web app exploring the subtle distinctness of Slovakia and Slovenia (with an honorary Balkan Portugal easter egg), procedural music, and multi-language quiz.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slovakia vs Slovenia - Know The Difference!</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tone.js for procedural music -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        script: ['"Caveat"', 'cursive'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        memeRed: '#D32F2F',
+                        memeRedHover: '#B71C1C',
+                        paperBg: '#FAF8F5',
+                        darkText: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f3f4f6;
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .poster-container {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlight-row {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .highlight-active {
+            background-color: rgba(211, 47, 47, 0.08);
+            border-radius: 0.5rem;
+            transform: scale(1.01);
+        }
+
+        /* Animated scanner laser line */
+        #scannerLine {
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #D32F2F, #FF5252, #D32F2F, transparent);
+            box-shadow: 0 0 15px #FF5252, 0 0 25px #D32F2F;
+            z-index: 40;
+            pointer-events: none;
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s infinite ease-in-out;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D32F2F;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="text-darkText font-sans min-h-screen py-4 px-2 sm:px-4 md:py-8 antialiased selection:bg-memeRed selection:text-white">
+
+    <!-- Sticky Audio & Language Control Bar -->
+    <header class="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-5xl bg-white/95 backdrop-blur-md border border-gray-200/90 rounded-2xl md:rounded-full px-3 py-2 shadow-lg flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+        
+        <!-- Audio Controls -->
+        <div class="flex items-center gap-2">
+            <button id="musicBtn" onclick="toggleMusic()" class="flex items-center gap-2 bg-memeRed hover:bg-memeRedHover text-white px-3 py-1.5 rounded-full font-semibold transition-all shadow-md active:scale-95 text-xs sm:text-sm">
+                <i id="musicIcon" class="fas fa-music animate-bounce"></i>
+                <span id="musicText">Play Polka</span>
+            </button>
+            <span class="hidden lg:inline-block text-gray-500 font-medium italic text-xs">🎵 Slavic Meme Vibes</span>
+        </div>
+
+        <!-- Language Selector Dropdown -->
+        <div class="flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200/80 px-2.5 py-1 rounded-full border border-gray-300 transition-colors">
+            <i class="fas fa-globe text-memeRed"></i>
+            <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-transparent font-semibold text-gray-800 outline-none cursor-pointer text-xs sm:text-sm pr-1">
+                <option value="en">🇬🇧 English</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="hr">🇭🇷 Hrvatski</option>
+                <option value="sk">🇸🇰 Slovenčina</option>
+                <option value="sl">🇸🇮 Slovenščina</option>
+                <option value="cs">🇨🇿 Čeština</option>
+                <option value="pt-BR">🇧🇷 Português (Brasil)</option>
+                <option value="pt-PT">🇵🇹 Português (Portugal) 🇵🇹</option>
+            </select>
+        </div>
+
+        <!-- Tools / Actions -->
+        <div class="flex items-center gap-1.5">
+            <button onclick="scanDifferences()" class="bg-gray-800 hover:bg-black text-white px-2.5 py-1.5 rounded-full font-medium transition-all flex items-center gap-1 text-xs active:scale-95">
+                <i class="fas fa-search-nodes text-memeRed"></i>
+                <span class="hidden sm:inline">AI Scanner</span>
+            </button>
+            <button onclick="toggleFlagSwap()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-2.5 py-1.5 rounded-full font-medium transition-all flex items-center gap-1 text-xs active:scale-95 border border-gray-300">
+                <i class="fas fa-retweet text-memeRed"></i>
+                <span class="hidden sm:inline">Swap Flags</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Poster Wrapper -->
+    <main class="max-w-4xl mx-auto mt-16 sm:mt-20 bg-paperBg rounded-2xl p-4 sm:p-8 md:p-12 poster-container relative overflow-hidden transition-all">
+
+        <!-- Laser Scanner Element -->
+        <div id="scannerLine"></div>
+
+        <!-- Banner Alert for Easter Egg / Scanner Results -->
+        <div id="scanResult" class="hidden opacity-0 transition-all duration-300 mb-6 p-3 rounded-xl text-center font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-inner">
+            <i id="scanResultIcon" class="fas fa-triangle-exclamation"></i>
+            <span id="scanResultText">Scan Complete: 0 Differences Found (99.9% Match Rate!)</span>
+        </div>
+
+        <!-- Header Titles -->
+        <div class="text-center relative pt-2 pb-6">
+            <div class="grid grid-cols-2 gap-4 items-center">
+                <h1 id="headerLeft" class="font-serif text-3xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight transition-all">
+                    Slovakia
+                </h1>
+                <h1 id="headerRight" class="font-serif text-3xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight transition-all">
+                    Slovenia
+                </h1>
+            </div>
+
+            <!-- Cursive Script Tagline -->
+            <div class="mt-1 sm:-mt-2 relative inline-block">
+                <h2 id="taglineText" class="font-script text-3xl sm:text-5xl md:text-6xl text-memeRed font-bold rotate-[-2deg] tracking-wide drop-shadow-sm select-none">
+                    Know the difference!
+                </h2>
+                <div class="w-full h-1 bg-memeRed rounded-full -mt-1 opacity-80"></div>
+            </div>
+        </div>
+
+        <!-- Dynamic Sections Container -->
+        <div class="space-y-8 sm:space-y-10 mt-4">
+
+            <!-- ================= SECTION: FLAG ================= -->
+            <section class="section-block">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                    <h3 id="labelFlag" class="font-serif text-lg sm:text-xl font-bold text-memeRed uppercase tracking-widest text-center">
+                        FLAG
+                    </h3>
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 sm:gap-8 items-start">
+                    <!-- Left Flag Column -->
+                    <div class="highlight-row p-2 sm:p-3 rounded-lg cursor-pointer" onclick="triggerRowHighlight(this)">
+                        <div class="mb-4 flex justify-center">
+                            <div id="leftFlagContainer" class="w-full max-w-[220px] aspect-[3/2] rounded-md shadow-md overflow-hidden border border-gray-300 transform transition-transform hover:scale-105">
+                                <svg id="leftFlagSvg" viewBox="0 0 600 400" class="w-full h-full object-cover">
+                                    <!-- Rendered dynamically -->
+                                </svg>
+                            </div>
+                        </div>
+                        <ul id="flagLeftList" class="space-y-1.5 text-xs sm:text-base font-medium text-gray-800">
+                            <!-- Populated via JS -->
+                        </ul>
+                    </div>
+
+                    <!-- Right Flag Column -->
+                    <div class="highlight-row p-2 sm:p-3 rounded-lg cursor-pointer" onclick="triggerRowHighlight(this)">
+                        <div class="mb-4 flex justify-center">
+                            <div id="rightFlagContainer" class="w-full max-w-[220px] aspect-[3/2] rounded-md shadow-md overflow-hidden border border-gray-300 transform transition-transform hover:scale-105">
+                                <svg id="rightFlagSvg" viewBox="0 0 600 400" class="w-full h-full object-cover">
+                                    <!-- Rendered dynamically -->
+                                </svg>
+                            </div>
+                        </div>
+                        <ul id="flagRightList" class="space-y-1.5 text-xs sm:text-base font-medium text-gray-800">
+                            <!-- Populated via JS -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SECTION: LANGUAGE ================= -->
+            <section class="section-block">
+                <div class="flex items-center justify-center gap-3 mb-3">
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                    <h3 id="labelLanguage" class="font-serif text-lg sm:text-xl font-bold text-memeRed uppercase tracking-widest text-center">
+                        LANGUAGE
+                    </h3>
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 sm:gap-8">
+                    <div class="highlight-row p-2.5 rounded-lg cursor-pointer hover:bg-red-50/50 flex items-center justify-between" onclick="speakText('left')">
+                        <div class="flex items-start gap-2 text-xs sm:text-base font-medium text-gray-800">
+                            <span class="text-memeRed font-bold">•</span>
+                            <span id="langLeftText" class="font-semibold">Slovenčina.</span>
+                        </div>
+                        <button class="text-gray-400 hover:text-memeRed text-xs sm:text-sm p-1 ml-1 shrink-0" title="Pronounce">
+                            <i class="fas fa-volume-high"></i>
+                        </button>
+                    </div>
+
+                    <div class="highlight-row p-2.5 rounded-lg cursor-pointer hover:bg-red-50/50 flex items-center justify-between" onclick="speakText('right')">
+                        <div class="flex items-start gap-2 text-xs sm:text-base font-medium text-gray-800">
+                            <span class="text-memeRed font-bold">•</span>
+                            <span id="langRightText" class="font-semibold">Slovinčina.</span>
+                        </div>
+                        <button class="text-gray-400 hover:text-memeRed text-xs sm:text-sm p-1 ml-1 shrink-0" title="Pronounce">
+                            <i class="fas fa-volume-high"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SECTION: GEOGRAPHY ================= -->
+            <section class="section-block">
+                <div class="flex items-center justify-center gap-3 mb-3">
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                    <h3 id="labelGeography" class="font-serif text-lg sm:text-xl font-bold text-memeRed uppercase tracking-widest text-center">
+                        GEOGRAPHY
+                    </h3>
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 sm:gap-8">
+                    <div class="highlight-row p-2.5 rounded-lg cursor-pointer hover:bg-red-50/50" onclick="triggerRowHighlight(this)">
+                        <ul id="geoLeftList" class="space-y-1.5 text-xs sm:text-base font-medium text-gray-800">
+                            <!-- Populated via JS -->
+                        </ul>
+                    </div>
+
+                    <div class="highlight-row p-2.5 rounded-lg cursor-pointer hover:bg-red-50/50" onclick="triggerRowHighlight(this)">
+                        <ul id="geoRightList" class="space-y-1.5 text-xs sm:text-base font-medium text-gray-800">
+                            <!-- Populated via JS -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SECTION: HISTORY ================= -->
+            <section class="section-block">
+                <div class="flex items-center justify-center gap-3 mb-3">
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                    <h3 id="labelHistory" class="font-serif text-lg sm:text-xl font-bold text-memeRed uppercase tracking-widest text-center">
+                        HISTORY
+                    </h3>
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 sm:gap-8">
+                    <div class="highlight-row p-2.5 rounded-lg cursor-pointer hover:bg-red-50/50" onclick="triggerRowHighlight(this)">
+                        <ul id="histLeftList" class="space-y-2 text-xs sm:text-base font-medium text-gray-800">
+                            <!-- Populated via JS -->
+                        </ul>
+                    </div>
+
+                    <div class="highlight-row p-2.5 rounded-lg cursor-pointer hover:bg-red-50/50" onclick="triggerRowHighlight(this)">
+                        <ul id="histRightList" class="space-y-2 text-xs sm:text-base font-medium text-gray-800">
+                            <!-- Populated via JS -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SECTION: CURRENCY ================= -->
+            <section class="section-block">
+                <div class="flex items-center justify-center gap-3 mb-3">
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                    <h3 id="labelCurrency" class="font-serif text-lg sm:text-xl font-bold text-memeRed uppercase tracking-widest text-center">
+                        CURRENCY
+                    </h3>
+                    <div class="h-px bg-gray-300 flex-1"></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 sm:gap-8">
+                    <div class="highlight-row p-2.5 rounded-lg cursor-pointer hover:bg-red-50/50" onclick="triggerRowHighlight(this)">
+                        <div class="flex items-center gap-2 text-xs sm:text-base font-medium text-gray-800">
+                            <span class="text-memeRed font-bold">•</span>
+                            <span id="currLeftText" class="font-bold">EUR</span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-row p-2.5 rounded-lg cursor-pointer hover:bg-red-50/50" onclick="triggerRowHighlight(this)">
+                        <div class="flex items-center gap-2 text-xs sm:text-base font-medium text-gray-800">
+                            <span class="text-memeRed font-bold">•</span>
+                            <span id="currRightText" class="font-bold">EUR</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Punchline Footer -->
+        <div class="mt-12 sm:mt-16 text-center pt-6 border-t border-gray-200">
+            <h2 id="footerPunchline" class="font-script text-3xl sm:text-5xl md:text-6xl text-memeRed font-bold tracking-wide leading-tight cursor-pointer hover:scale-105 transition-transform" onclick="triggerConfetti()">
+                Now you learned how<br class="sm:hidden"> distinct these nations are!
+            </h2>
+            <p id="footerSubtext" class="text-xs text-gray-400 mt-3">Click punchline or button below to celebrate total distinctiveness 🎉</p>
+            
+            <button onclick="triggerConfetti()" class="mt-4 bg-memeRed hover:bg-memeRedHover text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-md transition-all transform active:scale-95 inline-flex items-center gap-2">
+                <i class="fas fa-sparkles"></i> <span id="btnCelebrate">Celebrate Distinction!</span>
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Interactive Mini-Quiz Section -->
+    <section class="max-w-4xl mx-auto mt-8 bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+        <div class="flex items-center gap-3 mb-4">
+            <div class="p-2.5 bg-red-100 rounded-xl text-memeRed font-bold">
+                <i class="fas fa-brain text-xl"></i>
+            </div>
+            <div>
+                <h3 id="quizHeaderTitle" class="font-bold text-lg text-gray-900">Interactive Distinctness Quiz</h3>
+                <p id="quizHeaderSub" class="text-xs text-gray-500">Test your newfound knowledge!</p>
+            </div>
+        </div>
+
+        <div id="quizContainer" class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+            <p id="quizQuestion" class="font-semibold text-gray-800 mb-3 text-sm sm:text-base">
+                <!-- Question loaded dynamically -->
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <button onclick="answerQuiz('left')" class="p-3 bg-white hover:bg-red-50 border border-gray-300 rounded-lg text-left text-sm font-semibold transition-all flex items-center justify-between group">
+                    <span id="quizBtnLeft">Slovakia 🇸🇰</span>
+                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 text-memeRed transition-opacity"></i>
+                </button>
+                <button onclick="answerQuiz('right')" class="p-3 bg-white hover:bg-red-50 border border-gray-300 rounded-lg text-left text-sm font-semibold transition-all flex items-center justify-between group">
+                    <span id="quizBtnRight">Slovenia 🇸🇮</span>
+                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 text-memeRed transition-opacity"></i>
+                </button>
+            </div>
+            <div id="quizFeedback" class="mt-3 text-xs sm:text-sm font-bold text-memeRed hidden"></div>
+        </div>
+    </section>
+
+    <!-- Footer Disclaimer -->
+    <footer class="text-center text-xs text-gray-500 my-8">
+        <p id="footerDisclaimer">Created for meme enthusiasts, geographers, and anyone who gets confused at embassy meetings.</p>
+    </footer>
+
+    <!-- JavaScript Logic & Multi-language Database -->
+    <script>
+        // SVG Definitions for Flags
+        const FLAG_SVGS = {
+            slovakia: `
+                <rect width="600" height="133.3" fill="#FFFFFF"/>
+                <rect y="133.3" width="600" height="133.3" fill="#0B4EA2"/>
+                <rect y="266.6" width="600" height="133.4" fill="#EE1C25"/>
+                <g transform="translate(130, 65) scale(1.1)">
+                    <path d="M 0 0 L 80 0 C 80 80 70 120 40 140 C 10 120 0 80 0 0 Z" fill="#EE1C25" stroke="#FFFFFF" stroke-width="5"/>
+                    <path d="M 10 115 C 20 85 30 85 40 100 C 50 85 60 85 70 115 Z" fill="#0B4EA2"/>
+                    <rect x="36" y="25" width="8" height="75" fill="#FFFFFF"/>
+                    <rect x="24" y="40" width="32" height="7" fill="#FFFFFF"/>
+                    <rect x="18" y="58" width="44" height="7" fill="#FFFFFF"/>
+                </g>`,
+            slovenia: `
+                <rect width="600" height="133.3" fill="#FFFFFF"/>
+                <rect y="133.3" width="600" height="133.3" fill="#005DA4"/>
+                <rect y="266.6" width="600" height="133.4" fill="#ED1C24"/>
+                <g transform="translate(110, 80) scale(0.85)">
+                    <path d="M 0 0 L 70 0 C 70 50 60 90 35 110 C 10 90 0 50 0 0 Z" fill="#005DA4" stroke="#ED1C24" stroke-width="6"/>
+                    <path d="M 12 75 L 25 45 L 35 60 L 45 45 L 58 75 Z" fill="#FFFFFF"/>
+                    <path d="M 15 83 Q 25 78 35 83 T 55 83" fill="none" stroke="#005DA4" stroke-width="4"/>
+                    <path d="M 15 92 Q 25 87 35 92 T 55 92" fill="none" stroke="#005DA4" stroke-width="4"/>
+                    <polygon points="35,10 37,16 43,16 38,20 40,26 35,22 30,26 32,20 27,16 33,16" fill="#FFCC00"/>
+                    <polygon points="20,25 22,31 28,31 23,35 25,41 20,37 15,41 17,35 12,31 18,31" fill="#FFCC00"/>
+                    <polygon points="50,25 52,31 58,31 53,35 55,41 50,37 45,41 47,35 42,31 48,31" fill="#FFCC00"/>
+                </g>`,
+            portugal: `
+                <rect width="240" height="400" fill="#006600"/>
+                <rect x="240" width="360" height="400" fill="#FF0000"/>
+                <g transform="translate(240, 200) scale(1.1)">
+                    <circle r="75" fill="none" stroke="#FFCC00" stroke-width="8"/>
+                    <circle r="50" fill="none" stroke="#FFCC00" stroke-width="4"/>
+                    <path d="M -75 0 L 75 0 M 0 -75 L 0 75" stroke="#FFCC00" stroke-width="4"/>
+                    <path d="M -30 -40 L 30 -40 L 30 20 C 30 45 0 55 0 55 C 0 55 -30 45 -30 20 Z" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+                    <path d="M -30 -40 L 30 -40 L 30 -15 L -30 -15 Z" fill="#FF0000"/>
+                    <rect x="-18" y="-32" width="8" height="8" fill="#FFCC00"/>
+                    <rect x="10" y="-32" width="8" height="8" fill="#FFCC00"/>
+                    <path d="M -20 -5 L 20 -5 L 20 18 C 20 35 0 45 0 45 C 0 45 -20 35 -20 18 Z" fill="#FFFFFF" stroke="#005DA4" stroke-width="2"/>
+                    <polygon points="0,-1 2,4 7,4 3,7 5,12 0,9 -5,12 -3,7 -7,4 -2,4" fill="#005DA4"/>
+                </g>`,
+            brazil: `
+                <rect width="600" height="400" fill="#009B3A"/>
+                <polygon points="300,40 560,200 300,360 40,200" fill="#FEDF00"/>
+                <circle cx="300" cy="200" r="95" fill="#002776"/>
+                <path d="M 210 220 Q 300 160 390 210 Q 300 175 210 220 Z" fill="#FFFFFF"/>
+                <circle cx="270" cy="240" r="3" fill="#FFFFFF"/>
+                <circle cx="320" cy="230" r="3" fill="#FFFFFF"/>
+                <circle cx="340" cy="250" r="3" fill="#FFFFFF"/>
+                <circle cx="290" cy="260" r="3" fill="#FFFFFF"/>`
+        };
+
+        // Multi-Language Translations Dictionary
+        const I18N = {
+            en: {
+                leftCountry: "Slovakia",
+                rightCountry: "Slovenia",
+                tagline: "Know the difference!",
+                labelFlag: "FLAG",
+                labelLanguage: "LANGUAGE",
+                labelGeography: "GEOGRAPHY",
+                labelHistory: "HISTORY",
+                labelCurrency: "CURRENCY",
+                flagLeft: ["White, blue and red.", "Coat of arms with three peaks."],
+                flagRight: ["White, blue and red.", "Coat of arms with three peaks."],
+                langLeft: "Slovenčina.",
+                langRight: "Slovinčina.",
+                geoLeft: ["Mountains.", "Physically Europe, mentally Balkans."],
+                geoRight: ["Mountains.", "Physically Balkans, mentally Europe."],
+                histLeft: [
+                    "Historically their state did not exist.",
+                    "Most of the time, ruled from Vienna.",
+                    "Part of a Slavic federation after WWI.",
+                    "Communism.",
+                    "Gained independence in early 90's.",
+                    "Joined the EU in 2004."
+                ],
+                histRight: [
+                    "Historically their state did not exist.",
+                    "Most of the time, ruled from Vienna.",
+                    "Part of a Slavic federation after WWI.",
+                    "Communism.",
+                    "Gained independence in early 90's.",
+                    "Joined the EU in 2004."
+                ],
+                currLeft: "EUR",
+                currRight: "EUR",
+                punchline: "Now you learned how<br class='sm:hidden'> distinct these nations are!",
+                subtext: "Click punchline or button below to celebrate total distinctiveness 🎉",
+                btnCelebrate: "Celebrate Distinction!",
+                quizTitle: "Interactive Distinctness Quiz",
+                quizSub: "Test your newfound knowledge!",
+                disclaimer: "Created for meme enthusiasts, geographers, and anyone who gets confused at embassy meetings.",
+                flagType: "sk-sl"
+            },
+            de: {
+                leftCountry: "Slowakei",
+                rightCountry: "Slowenien",
+                tagline: "Erkenne den Unterschied!",
+                labelFlag: "FLAGGE",
+                labelLanguage: "SPRACHE",
+                labelGeography: "GEOGRAFIE",
+                labelHistory: "GESCHICHTE",
+                labelCurrency: "WÄHRUNG",
+                flagLeft: ["Weiß, Blau und Rot.", "Wappen mit drei Gipfeln."],
+                flagRight: ["Weiß, Blau und Rot.", "Wappen mit drei Gipfeln."],
+                langLeft: "Slovenčina.",
+                langRight: "Slovinčina.",
+                geoLeft: ["Berge.", "Physisch Europa, mental Balkan."],
+                geoRight: ["Berge.", "Physisch Balkan, mental Europa."],
+                histLeft: [
+                    "Historisch existierte ihr Staat nicht.",
+                    "Die meiste Zeit aus Wien regiert.",
+                    "Teil einer slawischen Föderation nach dem 1. Weltkrieg.",
+                    "Kommunismus.",
+                    "Erlangte Unabhängigkeit Anfang der 90er.",
+                    "Der EU 2004 beigetreten."
+                ],
+                histRight: [
+                    "Historisch existierte ihr Staat nicht.",
+                    "Die meiste Zeit aus Wien regiert.",
+                    "Teil einer slawischen Föderation nach dem 1. Weltkrieg.",
+                    "Kommunismus.",
+                    "Erlangte Unabhängigkeit Anfang der 90er.",
+                    "Der EU 2004 beigetreten."
+                ],
+                currLeft: "EUR",
+                currRight: "EUR",
+                punchline: "Jetzt weißt du, wie unterschiedlich diese Nationen sind!",
+                subtext: "Klicke unten, um die absolute Unterschiedlichkeit zu feiern 🎉",
+                btnCelebrate: "Unterschied feiern!",
+                quizTitle: "Interaktives Unterscheidungs-Quiz",
+                quizSub: "Testen Sie Ihr neues Wissen!",
+                disclaimer: "Erstellt für Meme-Liebhaber, Geografen und jeden, der im Botschaftstreffen verwirrt ist.",
+                flagType: "sk-sl"
+            },
+            hr: {
+                leftCountry: "Slovačka",
+                rightCountry: "Slovenija",
+                tagline: "Saznajte razliku!",
+                labelFlag: "ZASTAVA",
+                labelLanguage: "JEZIK",
+                labelGeography: "GEOGRAFIJA",
+                labelHistory: "POVIJEST",
+                labelCurrency: "VALUTA",
+                flagLeft: ["Bijela, plava i crvena.", "Grb s tri vrha."],
+                flagRight: ["Bijela, plava i crvena.", "Grb s tri vrha."],
+                langLeft: "Slovenčina.",
+                langRight: "Slovinčina.",
+                geoLeft: ["Planine.", "Fizički Europa, mentalno Balkan."],
+                geoRight: ["Planine.", "Fizički Balkan, mentalno Europa."],
+                histLeft: [
+                    "Povijesno njihova država nije postojala.",
+                    "Većinu vremena vladalo se iz Beča.",
+                    "Dio slavenske federacije nakon 1. svj. rata.",
+                    "Komunizam.",
+                    "Stekli neovisnost početkom 90-ih.",
+                    "Pridružili se EU 2004. godine."
+                ],
+                histRight: [
+                    "Povijesno njihova država nije postojala.",
+                    "Većinu vremena vladalo se iz Beča.",
+                    "Dio slavenske federacije nakon 1. svj. rata.",
+                    "Komunizam.",
+                    "Stekli neovisnost početkom 90-ih.",
+                    "Pridružili se EU 2004. godine."
+                ],
+                currLeft: "EUR",
+                currRight: "EUR",
+                punchline: "Sada ste naučili koliko su ove nacije različite!",
+                subtext: "Kliknite gumb za proslavu potpune raznolikosti 🎉",
+                btnCelebrate: "Proslavi Razliku!",
+                quizTitle: "Kviz Razlikovanja",
+                quizSub: "Testirajte svoje novo znanje!",
+                disclaimer: "Stvoreno za ljubitelje meemova i zbunjene diplomate.",
+                flagType: "sk-sl"
+            },
+            sk: {
+                leftCountry: "Slovensko",
+                rightCountry: "Slovinsko",
+                tagline: "Spoznajte ten rozdiel!",
+                labelFlag: "VLAJKA",
+                labelLanguage: "JAZYK",
+                labelGeography: "GEOGRAFIA",
+                labelHistory: "HISTÓRIA",
+                labelCurrency: "MENA",
+                flagLeft: ["Biela, modrá a červená.", "Erb s tromi vrchmi."],
+                flagRight: ["Biela, modrá a červená.", "Erb s tromi vrchmi."],
+                langLeft: "Slovenčina.",
+                langRight: "Slovinčina.",
+                geoLeft: ["Hory.", "Fyzicky Európa, mentálne Balkán."],
+                geoRight: ["Hory.", "Fyzicky Balkán, mentálne Európa."],
+                histLeft: [
+                    "Historicky ich štát neexistoval.",
+                    "Väčšinu času vládla Viedeň.",
+                    "Súčasť slovanskej federácie po 1. sv. vojne.",
+                    "Komunizmus.",
+                    "Získali nezávislosť začiatkom 90. rokov.",
+                    "Vstúpili do EÚ v roku 2004."
+                ],
+                histRight: [
+                    "Historicky ich štát neexistoval.",
+                    "Väčšinu času vládla Viedeň.",
+                    "Súčasť slovanskej federácie po 1. sv. vojne.",
+                    "Komunizmus.",
+                    "Získali nezávislosť začiatkom 90. rokov.",
+                    "Vstúpili do EÚ v roku 2004."
+                ],
+                currLeft: "EUR",
+                currRight: "EUR",
+                punchline: "Teraz ste sa naučili, aké odlišné sú tieto národy!",
+                subtext: "Kliknite dole pre oslavu totálnej odlišnosti 🎉",
+                btnCelebrate: "Osláviť Odlišnosť!",
+                quizTitle: "Interaktívny Kvíz Odlišnosti",
+                quizSub: "Otestujte svoje nové vedomosti!",
+                disclaimer: "Vytvorené pre milovníkov memov a zmätených diplomatov.",
+                flagType: "sk-sl"
+            },
+            sl: {
+                leftCountry: "Slovaška",
+                rightCountry: "Slovenija",
+                tagline: "Spoznajte razliko!",
+                labelFlag: "ZASTAVA",
+                labelLanguage: "JEZIK",
+                labelGeography: "GEOGRAFIJA",
+                labelHistory: "ZGODOVINA",
+                labelCurrency: "VALUTA",
+                flagLeft: ["Bela, modra in rdeča.", "Grb s tremi vrhovi."],
+                flagRight: ["Bela, modra in rdeča.", "Grb s tremi vrhovi."],
+                langLeft: "Slovenčina.",
+                langRight: "Slovinčina.",
+                geoLeft: ["Gore.", "Fizično Evropa, mentalno Balkan."],
+                geoRight: ["Gore.", "Fizično Balkan, mentalno Evropa."],
+                histLeft: [
+                    "Zgodovinsko njuna država ni obstajala.",
+                    "Večino časa se je vladalo iz Dunaja.",
+                    "Del slovanske federacije po 1. sv. vojni.",
+                    "Komunizem.",
+                    "Osamosvojitev v zgodnjih 90. letih.",
+                    "Pridružitev EU leta 2004."
+                ],
+                histRight: [
+                    "Zgodovinsko njuna država ni obstajala.",
+                    "Večino časa se je vladalo iz Dunaja.",
+                    "Del slovanske federacije po 1. sv. vojni.",
+                    "Komunizem.",
+                    "Osamosvojitev v zgodnjih 90. letih.",
+                    "Pridružitev EU leta 2004."
+                ],
+                currLeft: "EUR",
+                currRight: "EUR",
+                punchline: "Zdaj ste se naučili, kako različni sta ti naciji!",
+                subtext: "Kliknite za praznovanje popolne različnosti 🎉",
+                btnCelebrate: "Praznuj Različnost!",
+                quizTitle: "Kviz Različnosti",
+                quizSub: "Preverite svoje novo znanje!",
+                disclaimer: "Ustvarjeno za ljubitelje memov in zmedene diplomate.",
+                flagType: "sk-sl"
+            },
+            cs: {
+                leftCountry: "Slovensko",
+                rightCountry: "Slovinsko",
+                tagline: "Poznejte ten rozdíl!",
+                labelFlag: "VLAJKA",
+                labelLanguage: "JAZYK",
+                labelGeography: "GEOGRAFIE",
+                labelHistory: "HISTORIE",
+                labelCurrency: "MĚNA",
+                flagLeft: ["Bílá, modrá a červená.", "Znak se třemi vrcholy."],
+                flagRight: ["Bílá, modrá a červená.", "Znak se třemi vrcholy."],
+                langLeft: "Slovenčina.",
+                langRight: "Slovinčina.",
+                geoLeft: ["Hory.", "Fyzicky Evropa, mentálně Balkán."],
+                geoRight: ["Hory.", "Fyzicky Balkán, mentálně Evropa."],
+                histLeft: [
+                    "Historicky jejich stát neexistoval.",
+                    "Většinu času vládla Vídeň.",
+                    "Součást slovanské federace po 1. sv. válce.",
+                    "Komunismus.",
+                    "Získali nezávislost počátkem 90. let.",
+                    "Vstoupili do EU v roce 2004."
+                ],
+                histRight: [
+                    "Historicky jejich stát neexistoval.",
+                    "Většinu času vládla Vídeň.",
+                    "Součást slovanské federace po 1. sv. válce.",
+                    "Komunismus.",
+                    "Získali nezávislost počátkem 90. let.",
+                    "Vstoupili do EU v roce 2004."
+                ],
+                currLeft: "EUR",
+                currRight: "EUR",
+                punchline: "Nyní jste se naučili, jak odlišné tyto národy jsou!",
+                subtext: "Klikněte níže pro oslavu celkové odlišnosti 🎉",
+                btnCelebrate: "Oslavit Odlišnost!",
+                quizTitle: "Kvíz Odlišnosti",
+                quizSub: "Otestujte své znalosti!",
+                disclaimer: "Vytvořeno pro fanoušky memů a zmatené diplomaty.",
+                flagType: "sk-sl"
+            },
+            "pt-BR": {
+                leftCountry: "Eslováquia",
+                rightCountry: "Eslovênia",
+                tagline: "Saiba a diferença!",
+                labelFlag: "BANDEIRA",
+                labelLanguage: "IDIOMA",
+                labelGeography: "GEOGRAFIA",
+                labelHistory: "HISTÓRIA",
+                labelCurrency: "MOEDA",
+                flagLeft: ["Branca, azul e vermelha.", "Brasão de armas com três picos."],
+                flagRight: ["Branca, azul e vermelha.", "Brasão de armas com três picos."],
+                langLeft: "Slovenčina.",
+                langRight: "Slovinčina.",
+                geoLeft: ["Montanhas.", "Fisicamente Europa, mentalmente Bálcãs."],
+                geoRight: ["Montanhas.", "Fisicamente Bálcãs, mentalmente Europa."],
+                histLeft: [
+                    "Historicamente seu Estado não existia.",
+                    "Na maior parte do tempo, governados a partir de Viena.",
+                    "Parte de uma federação eslava após a Primeira Guerra Mundial.",
+                    "Comunismo.",
+                    "Ganharam independência no início dos anos 90.",
+                    "Entraram na União Europeia em 2004."
+                ],
+                histRight: [
+                    "Historicamente seu Estado não existia.",
+                    "Na maior parte do tempo, governados a partir de Viena.",
+                    "Parte de uma federação eslava após a Primeira Guerra Mundial.",
+                    "Comunismo.",
+                    "Ganharam independência no início dos anos 90.",
+                    "Entraram na União Europeia em 2004."
+                ],
+                currLeft: "EUR",
+                currRight: "EUR",
+                punchline: "Agora você aprendeu como estas nações são distintas!",
+                subtext: "Clique abaixo para celebrar essa diferença total 🎉",
+                btnCelebrate: "Celebrar Diferenças!",
+                quizTitle: "Quiz Interativo de Distinção",
+                quizSub: "Teste seus novos conhecimentos!",
+                disclaimer: "Criado para amantes de memes e diplomatas confusos.",
+                flagType: "sk-sl"
+            },
+            // ================= PORTUGUESE EUROPEAN HUMOR EASTER EGG =================
+            "pt-PT": {
+                leftCountry: "Portugal",
+                rightCountry: "Brasil",
+                tagline: "Saiba a diferença! (Modo Tuga)",
+                labelFlag: "BANDEIRA",
+                labelLanguage: "LÍNGUA",
+                labelGeography: "GEOGRAFIA",
+                labelHistory: "HISTÓRIA",
+                labelCurrency: "MOEDA",
+                flagLeft: ["Verde e vermelha.", "Esfera armilar com castelos e quinas."],
+                flagRight: ["Verde e amarela.", "Losango com globo azul e 'Ordem e Progresso'."],
+                langLeft: "Português (com sotaque e tu).",
+                langRight: "Português (com gerúndio e você).",
+                geoLeft: ["À beira-mar plantado.", "Fisicamente Europa, mentalmente... cadê o bacalhau?"],
+                geoRight: ["Dimensão continental.", "Fisicamente América do Sul, mentalmente Carnaval!"],
+                histLeft: [
+                    "Historicamente mandava em metade do mundo.",
+                    "Maior parte do tempo, a queixar-se do fado.",
+                    "Mandou a família real para o Rio de Janeiro em 1807.",
+                    "Ditadura do Estado Novo.",
+                    "Revolução dos Cravos nos anos 70.",
+                    "Aderiu à CEE/UE em 1986."
+                ],
+                histRight: [
+                    "Historicamente começou como colónia de exploração.",
+                    "Maior parte do tempo, governado pelo Rio e Brasília.",
+                    "Declarou independência por um príncipe português em 1822.",
+                    "Ditadura militar.",
+                    "Redemocratização nos anos 80.",
+                    "Fundou o Mercosul nos anos 90."
+                ],
+                currLeft: "EUR (€)",
+                currRight: "BRL (R$)",
+                punchline: "Agora sim percebeu como estas duas nações são terrivelmente distintas!",
+                subtext: "Ora pois! Clique abaixo para celebrar a Lusofonia 🎉",
+                btnCelebrate: "Celebrar com Bacalhau!",
+                quizTitle: "Quiz Lusófono do Caraças",
+                quizSub: "Será que consegue distinguir o Brasil de Portugal?",
+                disclaimer: "Modo Tuga Ativado! NENHUM bacalhau foi ferido na criação deste meme.",
+                flagType: "pt-br" // Custom Portugal & Brazil flag setup!
+            }
+        };
+
+        // Current state variables
+        let currentLang = "en";
+        let isFlagSwapped = true;
+        let isMusicPlaying = false;
+        let polkaSynth, bassSynth, loopEvent;
+
+        // Render flags depending on current language mode & flag swap toggle
+        function renderFlags() {
+            const leftSvg = document.getElementById("leftFlagSvg");
+            const rightSvg = document.getElementById("rightFlagSvg");
+            const langData = I18N[currentLang];
+
+            if (langData.flagType === "pt-br") {
+                // Portugal vs Brazil Easter Egg mode
+                if (isFlagSwapped) {
+                    leftSvg.innerHTML = FLAG_SVGS.brazil;
+                    rightSvg.innerHTML = FLAG_SVGS.portugal;
+                } else {
+                    leftSvg.innerHTML = FLAG_SVGS.portugal;
+                    rightSvg.innerHTML = FLAG_SVGS.brazil;
+                }
+            } else {
+                // Slovakia vs Slovenia Meme mode
+                if (isFlagSwapped) {
+                    // Swapped Joke: Left gets Slovenia flag, Right gets Slovakia flag
+                    leftSvg.innerHTML = FLAG_SVGS.slovenia;
+                    rightSvg.innerHTML = FLAG_SVGS.slovakia;
+                } else {
+                    // Accurate: Left gets Slovakia flag, Right gets Slovenia flag
+                    leftSvg.innerHTML = FLAG_SVGS.slovakia;
+                    rightSvg.innerHTML = FLAG_SVGS.slovenia;
+                }
+            }
+        }
+
+        // Change Language Engine
+        function changeLanguage(langKey) {
+            currentLang = langKey;
+            const data = I18N[langKey];
+            if (!data) return;
+
+            // Trigger Easter Egg banner when switching to pt-PT
+            const scanResult = document.getElementById("scanResult");
+            const scanResultText = document.getElementById("scanResultText");
+            const scanResultIcon = document.getElementById("scanResultIcon");
+
+            if (langKey === "pt-PT") {
+                scanResult.className = "mb-6 p-3 rounded-xl text-center font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-inner bg-amber-100 border border-amber-500 text-amber-900";
+                scanResultIcon.className = "fas fa-flag-checkered text-amber-600";
+                scanResultText.innerHTML = "🇵🇹 <b>Modo Tuga Ativado!</b> A comparar Portugal & Brasil para sua diversão!";
+                scanResult.classList.remove("hidden");
+                gsap.fromTo(scanResult, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4 });
+                triggerConfetti();
+            } else {
+                scanResult.classList.add("hidden");
+            }
+
+            // Animate content shift with GSAP
+            gsap.to(".section-block", { opacity: 0.3, y: 5, duration: 0.15, onComplete: () => {
+                
+                // Update Headers & Labels
+                document.getElementById("headerLeft").innerText = data.leftCountry;
+                document.getElementById("headerRight").innerText = data.rightCountry;
+                document.getElementById("taglineText").innerHTML = data.tagline;
+
+                document.getElementById("labelFlag").innerText = data.labelFlag;
+                document.getElementById("labelLanguage").innerText = data.labelLanguage;
+                document.getElementById("labelGeography").innerText = data.labelGeography;
+                document.getElementById("labelHistory").innerText = data.labelHistory;
+                document.getElementById("labelCurrency").innerText = data.labelCurrency;
+
+                // Update Flag Bullet Lists
+                renderList("flagLeftList", data.flagLeft);
+                renderList("flagRightList", data.flagRight);
+
+                // Update Language Section
+                document.getElementById("langLeftText").innerText = data.langLeft;
+                document.getElementById("langRightText").innerText = data.langRight;
+
+                // Update Geography Lists
+                renderList("geoLeftList", data.geoLeft);
+                renderList("geoRightList", data.geoRight);
+
+                // Update History Lists
+                renderList("histLeftList", data.histLeft);
+                renderList("histRightList", data.histRight);
+
+                // Update Currency
+                document.getElementById("currLeftText").innerText = data.currLeft;
+                document.getElementById("currRightText").innerText = data.currRight;
+
+                // Update Footer
+                document.getElementById("footerPunchline").innerHTML = data.punchline;
+                document.getElementById("footerSubtext").innerText = data.subtext;
+                document.getElementById("btnCelebrate").innerText = data.btnCelebrate;
+                document.getElementById("footerDisclaimer").innerText = data.disclaimer;
+
+                // Update Quiz Headers & Buttons
+                document.getElementById("quizHeaderTitle").innerText = data.quizTitle;
+                document.getElementById("quizHeaderSub").innerText = data.quizSub;
+                document.getElementById("quizBtnLeft").innerHTML = `${data.leftCountry} ${langKey === 'pt-PT' ? '🇵🇹' : '🇸🇰'}`;
+                document.getElementById("quizBtnRight").innerHTML = `${data.rightCountry} ${langKey === 'pt-PT' ? '🇧🇷' : '🇸🇮'}`;
+                
+                // Load active question
+                loadQuizQuestion();
+
+                // Re-render flags
+                renderFlags();
+
+                // Fade back in
+                gsap.to(".section-block", { opacity: 1, y: 0, duration: 0.25 });
+            }});
+        }
+
+        // Helper to build bullet lists
+        function renderList(elementId, items) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = items.map(item => `
+                <li class="flex items-start gap-2">
+                    <span class="text-memeRed font-bold">•</span>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+        }
+
+        // Tone.js Procedural Audio Engine
+        function initAudio() {
+            if (polkaSynth) return;
+
+            polkaSynth = new Tone.PolySynth(Tone.Synth, {
+                oscillator: { type: "sawtooth" },
+                envelope: { attack: 0.02, decay: 0.1, sustain: 0.3, release: 0.2 }
+            }).toDestination();
+            polkaSynth.volume.value = -12;
+
+            bassSynth = new Tone.MembraneSynth().toDestination();
+            bassSynth.volume.value = -10;
+
+            const melodyNotes = ["E5", "G5", "F#5", "E5", "D5", "F5", "E5", "D5", "C5", "E5", "G5", "C6"];
+            const bassNotes = ["C2", "G2", "C2", "G2", "F2", "G2", "C2", "G2"];
+            
+            let step = 0;
+            Tone.Transport.bpm.value = 140;
+
+            loopEvent = new Tone.Loop((time) => {
+                if (step % 3 === 0) {
+                    bassSynth.triggerAttackRelease(bassNotes[(step / 3) % bassNotes.length], "8n", time);
+                } else {
+                    polkaSynth.triggerAttackRelease(["C4", "E4", "G4"], "16n", time);
+                }
+
+                if (step % 2 === 0) {
+                    let note = melodyNotes[(step / 2) % melodyNotes.length];
+                    polkaSynth.triggerAttackRelease(note, "8n", time);
+                }
+                step++;
+            }, "8n");
+        }
+
+        async function toggleMusic() {
+            await Tone.start();
+            initAudio();
+
+            const musicBtn = document.getElementById("musicBtn");
+            const musicIcon = document.getElementById("musicIcon");
+            const musicText = document.getElementById("musicText");
+
+            if (!isMusicPlaying) {
+                Tone.Transport.start();
+                loopEvent.start(0);
+                isMusicPlaying = true;
+                musicText.innerText = "Pause Polka";
+                musicIcon.className = "fas fa-pause";
+                musicBtn.classList.replace("bg-memeRed", "bg-emerald-600");
+                musicBtn.classList.replace("hover:bg-memeRedHover", "hover:bg-emerald-700");
+            } else {
+                Tone.Transport.stop();
+                isMusicPlaying = false;
+                musicText.innerText = "Play Polka";
+                musicIcon.className = "fas fa-music animate-bounce";
+                musicBtn.classList.replace("bg-emerald-600", "bg-memeRed");
+                musicBtn.classList.replace("hover:bg-emerald-700", "hover:bg-memeRedHover");
+            }
+        }
+
+        // Flag Swap Toggle Function
+        function toggleFlagSwap() {
+            isFlagSwapped = !isFlagSwapped;
+            renderFlags();
+
+            const leftContainer = document.getElementById("leftFlagContainer");
+            const rightContainer = document.getElementById("rightFlagContainer");
+
+            gsap.fromTo([leftContainer, rightContainer], 
+                { scale: 0.8, rotate: isFlagSwapped ? -6 : 6 }, 
+                { scale: 1, rotate: 0, duration: 0.4, ease: "back.out(1.7)" }
+            );
+
+            const scanResult = document.getElementById("scanResult");
+            const scanResultText = document.getElementById("scanResultText");
+            const scanResultIcon = document.getElementById("scanResultIcon");
+
+            scanResult.className = "mb-6 p-3 rounded-xl text-center font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-inner bg-red-100 border border-memeRed text-memeRed";
+            scanResultIcon.className = "fas fa-triangle-exclamation";
+            
+            if (!isFlagSwapped) {
+                scanResultText.innerText = "⚠️ WARNING: Flags restored to historical accuracy! Joke ruined!";
+            } else {
+                scanResultText.innerText = "✨ MEME RESTORED: Flags swapped back!";
+            }
+
+            scanResult.classList.remove("hidden");
+            gsap.fromTo(scanResult, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 });
+
+            setTimeout(() => {
+                if (currentLang !== 'pt-PT') {
+                    gsap.to(scanResult, { opacity: 0, duration: 0.3, onComplete: () => scanResult.classList.add("hidden") });
+                }
+            }, 3000);
+        }
+
+        // Scanner Laser Animation
+        function scanDifferences() {
+            const line = document.getElementById("scannerLine");
+            const resultBox = document.getElementById("scanResult");
+            const resultText = document.getElementById("scanResultText");
+            const resultIcon = document.getElementById("scanResultIcon");
+
+            line.style.display = "block";
+            resultBox.classList.add("hidden");
+
+            try {
+                const synth = new Tone.Synth().toDestination();
+                synth.triggerAttackRelease("C6", "16n");
+            } catch (e) {}
+
+            gsap.fromTo(line, 
+                { top: "0%" }, 
+                { 
+                    top: "100%", 
+                    duration: 1.8, 
+                    ease: "power1.inOut",
+                    onComplete: () => {
+                        line.style.display = "none";
+                        resultBox.className = "mb-6 p-3 rounded-xl text-center font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-inner bg-red-100 border border-memeRed text-memeRed";
+                        resultIcon.className = "fas fa-search";
+                        
+                        if (currentLang === "pt-PT") {
+                            resultText.innerText = "Scan Concluído: 0 Diferenças na Lusofonia encontradas!";
+                        } else {
+                            resultText.innerText = "Scan Complete: 0 Differences Found (99.9% Match Rate!)";
+                        }
+                        
+                        resultBox.classList.remove("hidden");
+                        gsap.fromTo(resultBox, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 });
+                        triggerConfetti();
+                    }
+                }
+            );
+        }
+
+        // Highlight Row interaction
+        function triggerRowHighlight(element) {
+            const section = element.closest('.section-block');
+            if (!section) return;
+
+            const rows = section.querySelectorAll('.highlight-row');
+            rows.forEach(r => r.classList.add('highlight-active'));
+
+            try {
+                const tickSynth = new Tone.MembraneSynth({ pitchDecay: 0.01 }).toDestination();
+                tickSynth.volume.value = -18;
+                tickSynth.triggerAttackRelease("C4", "32n");
+            } catch (e) {}
+
+            setTimeout(() => {
+                rows.forEach(r => r.classList.remove('highlight-active'));
+            }, 1200);
+        }
+
+        // Speech Synthesizer
+        function speakText(side) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const text = side === 'left' ? I18N[currentLang].langLeft : I18N[currentLang].langRight;
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.85;
+
+                if (currentLang === 'pt-PT') {
+                    utterance.lang = side === 'left' ? 'pt-PT' : 'pt-BR';
+                } else {
+                    utterance.lang = side === 'left' ? 'sk-SK' : 'sl-SI';
+                }
+                
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Confetti Generator
+        function triggerConfetti() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 80,
+                    spread: 75,
+                    origin: { y: 0.7 },
+                    colors: ['#D32F2F', '#005DA4', '#FFFFFF', '#009B3A', '#FEDF00']
+                });
+            }
+        }
+
+        // Quiz Logic
+        let quizIndex = 0;
+        function loadQuizQuestion() {
+            const questions = {
+                en: [
+                    "Which country has white, blue, red colors and a coat of arms with peaks?",
+                    "Which country was ruled from Vienna and joined the EU in 2004?",
+                    "What currency will you use in Bratislava or Ljubljana?"
+                ],
+                pt: [
+                    "Qual país fala Português e adora bacalhau ou futebol?",
+                    "Qual país foi governado a partir de Lisboa/Rio de Janeiro?",
+                    "Qual a moeda usada em Lisboa ou no Rio de Janeiro?"
+                ]
+            };
+
+            const langQ = currentLang === 'pt-PT' ? questions.pt : questions.en;
+            document.getElementById("quizQuestion").innerText = `Question ${quizIndex + 1}: ${langQ[quizIndex % langQ.length]}`;
+        }
+
+        function answerQuiz(choice) {
+            const feedback = document.getElementById("quizFeedback");
+            feedback.innerText = currentLang === 'pt-PT' 
+                ? "🎉 Resposta Certa! Ambos combinam 100%!" 
+                : "🎉 Correct! Both nations match 100%!";
+            feedback.classList.remove("hidden");
+
+            triggerConfetti();
+            quizIndex++;
+
+            setTimeout(() => {
+                loadQuizQuestion();
+                feedback.classList.add("hidden");
+            }, 2500);
+        }
+
+        // Page Load Init
+        window.onload = () => {
+            changeLanguage("en");
+            gsap.from(".poster-container", { duration: 0.8, y: 30, opacity: 0, ease: "power2.out" });
+        };
+    </script>
+</body>
+</html>

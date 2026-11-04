@@ -1,0 +1,315 @@
+{
+  "en": [
+    {
+      "id": "en-1",
+      "question": "Which capital city lies directly on the Danube River and is situated less than 70 km from Vienna?",
+      "options": [
+        { "id": "a", "label": "Bratislava (Slovakia)" },
+        { "id": "b", "label": "Ljubljana (Slovenia)" },
+        { "id": "c", "label": "Zagreb (Croatia)" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Bratislava is situated right on the Danube, just about 60 km east of Vienna, making them the two closest capital cities in mainland Europe."
+    },
+    {
+      "id": "en-2",
+      "question": "Which country is renowned for Lake Bled, featuring an iconic island church set against the Julian Alps?",
+      "options": [
+        { "id": "a", "label": "Slovenia" },
+        { "id": "b", "label": "Slovakia" },
+        { "id": "c", "label": "Austria" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Lake Bled with its picturesque island church and cliffside medieval castle is located in northwestern Slovenia."
+    },
+    {
+      "id": "en-3",
+      "question": "Which nation was one of the two constituent republics in Czechoslovakia before peacefully dissolving in 1993?",
+      "options": [
+        { "id": "a", "label": "Slovakia" },
+        { "id": "b", "label": "Slovenia" },
+        { "id": "c", "label": "Poland" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Slovakia and the Czech Republic peacefully separated on January 1, 1993, in what is famously called the Velvet Divorce."
+    },
+    {
+      "id": "en-4",
+      "question": "Which country boasts Mount Triglav (2,864 m) on its national emblem and national flag?",
+      "options": [
+        { "id": "a", "label": "Slovenia" },
+        { "id": "b", "label": "Slovakia" },
+        { "id": "c", "label": "Switzerland" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Mount Triglav, the highest peak of the Julian Alps, is the central national symbol featured on the Slovenian coat of arms."
+    },
+    {
+      "id": "en-5",
+      "question": "Which country is home to the High Tatras, part of the Carpathian mountain arc?",
+      "options": [
+        { "id": "a", "label": "Slovakia" },
+        { "id": "b", "label": "Slovenia" },
+        { "id": "c", "label": "Hungary" }
+      ],
+      "correctOptionId": "a",
+      "fact": "The High Tatras form the natural northern alpine border of Slovakia with Poland, reaching 2,655 m at Gerlachovský štít."
+    }
+  ],
+  "de": [
+    {
+      "id": "de-1",
+      "question": "Welche Hauptstadt liegt direkt an der Donau und nur etwa 60 km östlich von Wien?",
+      "options": [
+        { "id": "a", "label": "Bratislava (Slowakei)" },
+        { "id": "b", "label": "Ljubljana (Slowenien)" },
+        { "id": "c", "label": "Zagreb (Kroatien)" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Bratislava liegt direkt an der Donau und ist eine der am nächsten gelegenen Zwillingshauptstädte Europas."
+    },
+    {
+      "id": "de-2",
+      "question": "In welchem Land befindet sich der weltberühmte Bleder See mit der kleinen Inselkirche in den Julischen Alpen?",
+      "options": [
+        { "id": "a", "label": "Slowenien" },
+        { "id": "b", "label": "Slowakei" },
+        { "id": "c", "label": "Österreich" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Der Bleder See mit seiner malerischen Marienkirche liegt im Nordwesten Sloweniens."
+    },
+    {
+      "id": "de-3",
+      "question": "Welches Land hat die Hohe Tatra und den Gerlsdorfer Gipfel (Gerlachovský štít) als höchste Erhebung?",
+      "options": [
+        { "id": "a", "label": "Slowakei" },
+        { "id": "b", "label": "Slowenien" },
+        { "id": "c", "label": "Ungarn" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Die Hohe Tatra ist das kleinste Hochgebirge der Welt und liegt zum größten Teil in der Slowakei."
+    }
+  ],
+  "hr": [
+    {
+      "id": "hr-1",
+      "question": "Koji se glavni grad nalazi na Dunavu, samo 60-ak kilometara udaljen od Beča?",
+      "options": [
+        { "id": "a", "label": "Bratislava (Slovačka)" },
+        { "id": "b", "label": "Ljubljana (Slovenija)" },
+        { "id": "c", "label": "Budimpešta (Mađarska)" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Bratislava i Beč su među geografski najbližim prijestolnicama u Europi."
+    },
+    {
+      "id": "hr-2",
+      "question": "Koja država ima vrh Triglav (2.864 m) kao središnji simbol na svom državnom grbu?",
+      "options": [
+        { "id": "a", "label": "Slovenija" },
+        { "id": "b", "label": "Slovačka" },
+        { "id": "c", "label": "Austrija" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Triglav u Julijskim Alpama nacionalni je simbol Slovenije i nalazi se na njezinoj zastavi."
+    },
+    {
+      "id": "hr-3",
+      "question": "Koja je država mirnim putem nastala raspadom Čehoslovačke 1. siječnja 1993.?",
+      "options": [
+        { "id": "a", "label": "Slovačka" },
+        { "id": "b", "label": "Slovenija" },
+        { "id": "c", "label": "Poljska" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Slovačka i Češka mirno su se razdružile u takozvanom Baršunastom razvodu 1993. godine."
+    }
+  ],
+  "sk": [
+    {
+      "id": "sk-1",
+      "question": "Ktoré hlavné mesto leží priamo na rieke Dunaj, približne 60 km od Viedne?",
+      "options": [
+        { "id": "a", "label": "Bratislava (Slovensko)" },
+        { "id": "b", "label": "Ľubľana (Slovinsko)" },
+        { "id": "c", "label": "Záhreb (Chorvátsko)" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Bratislava a Viedeň sú dve najbližšie ležiace hlavné mestá v kontinentálnej Európe."
+    },
+    {
+      "id": "sk-2",
+      "question": "V ktorej krajine sa nachádza ikonické Bledské jazero s ostrovným kostolíkom v Júlskych Alpách?",
+      "options": [
+        { "id": "a", "label": "Slovinsko" },
+        { "id": "b", "label": "Slovensko" },
+        { "id": "c", "label": "Rakúsko" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Bledské jazero s malebným hradom a ostrovom je symbolom severozápadného Slovinska."
+    },
+    {
+      "id": "sk-3",
+      "question": "Ktorá z týchto krajín má najvyšší vrchol Gerlachovský štít (2 655 m n. m.)?",
+      "options": [
+        { "id": "a", "label": "Slovensko" },
+        { "id": "b", "label": "Slovinsko" },
+        { "id": "c", "label": "Poľsko" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Gerlachovský štít vo Vysokých Tatrách je najvyšším vrchom Slovenska aj celých Karpát."
+    }
+  ],
+  "sl": [
+    {
+      "id": "sl-1",
+      "question": "Katera prestolnica leži neposredno ob reki Donavi, le dobro uro vožnje od Dunaja?",
+      "options": [
+        { "id": "a", "label": "Bratislava (Slovaška)" },
+        { "id": "b", "label": "Ljubljana (Slovenija)" },
+        { "id": "c", "label": "Gradec (Avstrija)" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Bratislava leži ob Donavi v neposredni bližini avstrijske meje."
+    },
+    {
+      "id": "sl-2",
+      "question": "Katera država ima goro Triglav (2.864 m) kot osrednji element na svojem državnem grbu?",
+      "options": [
+        { "id": "a", "label": "Slovenija" },
+        { "id": "b", "label": "Slovaška" },
+        { "id": "c", "label": "Italija" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Triglav je najvišji vrh Julijskih Alp in ponosni simbol na slovenskem grbu."
+    },
+    {
+      "id": "sl-3",
+      "question": "V kateri državi se nahaja gorska veriga Visoke Tatre?",
+      "options": [
+        { "id": "a", "label": "Slovaška" },
+        { "id": "b", "label": "Slovenija" },
+        { "id": "c", "label": "Madžarska" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Visoke Tatre ležijo na severu Slovaške na meji s Poljsko."
+    }
+  ],
+  "cs": [
+    {
+      "id": "cs-1",
+      "question": "Které hlavní město leží na řece Dunaji přibližně 60 km východně od Vídně?",
+      "options": [
+        { "id": "a", "label": "Bratislava (Slovensko)" },
+        { "id": "b", "label": "Lublaň (Slovinsko)" },
+        { "id": "c", "label": "Záhřeb (Chorvatsko)" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Bratislava a Vídeň patří k nejblíže ležícím hlavním městům v celé Evropě."
+    },
+    {
+      "id": "cs-2",
+      "question": "Ve které zemi se nachází jezero Bled s ostrovním kostelem v Julských Alpách?",
+      "options": [
+        { "id": "a", "label": "Slovinsko" },
+        { "id": "b", "label": "Slovensko" },
+        { "id": "c", "label": "Rakousko" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Bledské jezero je jedním z nejznámějších symbolů Slovinska."
+    },
+    {
+      "id": "cs-3",
+      "question": "Která země se pokojně osamostatnila po rozpadu společného státu k 1. lednu 1993?",
+      "options": [
+        { "id": "a", "label": "Slovensko" },
+        { "id": "b", "label": "Slovinsko" },
+        { "id": "c", "label": "Polsko" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Slovensko a Česká republika se v klidu rozdělily v roce 1993."
+    }
+  ],
+  "pt-BR": [
+    {
+      "id": "ptbr-1",
+      "question": "Qual capital europeia fica situada às margens do rio Danúbio, a cerca de 60 km de Viena?",
+      "options": [
+        { "id": "a", "label": "Bratislava (Eslováquia)" },
+        { "id": "b", "label": "Liubliana (Eslovênia)" },
+        { "id": "c", "label": "Zagreb (Croácia)" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Bratislava é a capital da Eslováquia e fica extremamente próxima de Viena, ligadas pelo rio Danúbio."
+    },
+    {
+      "id": "ptbr-2",
+      "question": "Em qual país fica o famoso Lago Bled, com uma igreja no centro de uma ilha nos Alpes Julianos?",
+      "options": [
+        { "id": "a", "label": "Eslovênia" },
+        { "id": "b", "label": "Eslováquia" },
+        { "id": "c", "label": "Áustria" }
+      ],
+      "correctOptionId": "a",
+      "fact": "O Lago Bled é uma das atrações naturais mais visitadas e conhecidas do noroeste da Eslovênia."
+    },
+    {
+      "id": "ptbr-3",
+      "question": "Qual nação tem o Monte Triglav (2.864 m) desenhado em seu brasão oficial?",
+      "options": [
+        { "id": "a", "label": "Eslovênia" },
+        { "id": "b", "label": "Eslováquia" },
+        { "id": "c", "label": "Suíça" }
+      ],
+      "correctOptionId": "a",
+      "fact": "O Monte Triglav, o ponto mais alto dos Alpes Julianos, estampa o brasão e a bandeira eslovena."
+    }
+  ],
+  "pt-PT": [
+    {
+      "id": "ptpt-1",
+      "question": "Qual destas nações acolheu a corte real e foi a sede oficial da monarquia portuguesa entre 1808 e 1821?",
+      "options": [
+        { "id": "a", "label": "Brasil (Rio de Janeiro)" },
+        { "id": "b", "label": "Portugal (Lisboa)" },
+        { "id": "c", "label": "Espanha (Madrid)" }
+      ],
+      "correctOptionId": "a",
+      "fact": "A transferência da corte de D. João VI para o Rio de Janeiro em 1808 transformou a cidade na única capital de um império europeu situada nas Américas."
+    },
+    {
+      "id": "ptpt-2",
+      "question": "Em que país nasceu o Fado, género musical classificado pela UNESCO como Património Imaterial da Humanidade?",
+      "options": [
+        { "id": "a", "label": "Portugal" },
+        { "id": "b", "label": "Brasil" },
+        { "id": "c", "label": "Cabo Verde" }
+      ],
+      "correctOptionId": "a",
+      "fact": "O Fado tem raízes nos bairros históricos de Lisboa (como Alfama e Mouraria) no início do século XIX."
+    },
+    {
+      "id": "ptpt-3",
+      "question": "Qual dos dois países abriga a maior extensão da bacia hidrográfica e floresta amazónica?",
+      "options": [
+        { "id": "a", "label": "Brasil" },
+        { "id": "b", "label": "Portugal" },
+        { "id": "c", "label": "Colômbia" }
+      ],
+      "correctOptionId": "a",
+      "fact": "O Brasil concentra mais de 60% da floresta amazónica no seu território nacional."
+    },
+    {
+      "id": "ptpt-4",
+      "question": "Qual destas duas nações adotou o Euro como moeda oficial a partir de 2002?",
+      "options": [
+        { "id": "a", "label": "Portugal" },
+        { "id": "b", "label": "Brasil" },
+        { "id": "c", "label": "Reino Unido" }
+      ],
+      "correctOptionId": "a",
+      "fact": "Portugal fez parte do grupo inaugural de países que adotou o Euro, substituindo o antigo Escudo português."
+    }
+  ]
+}
